@@ -683,6 +683,7 @@ Public Class MainWindow
                         .ColumnIndex = lineCol
                         .VPosition = vPos
                         .Value = Value
+                        .Landmine = attribute = "3"
                         .LongNote = attribute = "2"
                         .Hidden = attribute = "1"
                         .Selected = xSelected And nEnabled(.ColumnIndex)
