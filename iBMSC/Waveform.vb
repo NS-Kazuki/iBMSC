@@ -1,7 +1,4 @@
-﻿Imports CSCore.Streams
-Imports CSCore.Streams.Effects
-Imports CSCore
-Imports CSCore.Codecs
+﻿Imports CSCore
 
 
 Partial Public Class MainWindow
@@ -22,7 +19,7 @@ Partial Public Class MainWindow
         xDWAV.DefaultExt = "wav"
         xDWAV.InitialDirectory = IIf(ExcludeFileName(FileName) = "", InitPath, ExcludeFileName(FileName))
 
-        If xDWAV.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If xDWAV.ShowDialog = System.Windows.Forms.DialogResult.Cancel Then Exit Sub
         InitPath = ExcludeFileName(xDWAV.FileName)
 
         Dim src = CSCore.Codecs.CodecFactory.Instance.GetCodec(xDWAV.FileName)

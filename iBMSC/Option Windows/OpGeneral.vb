@@ -1,5 +1,3 @@
-Imports System.Windows.Forms
-
 Public Class OpGeneral
     Public zWheel As Integer
     Public zPgUpDn As Integer

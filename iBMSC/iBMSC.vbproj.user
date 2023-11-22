@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\otto\Documents\iBMSC-master\iBMSC\My Project\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="ChartIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\ColorPicker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\dgImportSM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\dgMyO2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\dgStatistics.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\diagFind.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\fLoadFileProgress.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dialogs\SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EditorColumns.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EditorPersistent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EditorRecent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EditorUndoRedo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyO2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Option Windows\OpGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Option Windows\OpPlayer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Option Windows\OpVisual.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PanelDraw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PanelEvents.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TimeSelectionOps.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Waveform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

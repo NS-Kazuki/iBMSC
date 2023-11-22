@@ -437,7 +437,7 @@ Partial Public Class MainWindow
         Dim xHeight As Integer = spMain(PanelFocus).Height
 
         Select Case e.Button
-            Case Windows.Forms.MouseButtons.Left
+            Case System.Windows.Forms.MouseButtons.Left
                 If tempFirstMouseDown And Not TBTimeSelect.Checked Then RefreshPanelAll() : Exit Select
 
                 KMouseOver = -1
@@ -456,7 +456,7 @@ Partial Public Class MainWindow
                 RefreshPanelAll()
                 POStatusRefresh()
 
-            Case Windows.Forms.MouseButtons.Middle
+            Case System.Windows.Forms.MouseButtons.Middle
                 If MiddleButtonMoveMethod = 1 Then
                     tempX = e.X
                     tempY = e.Y
@@ -468,7 +468,7 @@ Partial Public Class MainWindow
                     TimerMiddle.Enabled = True
                 End If
 
-            Case Windows.Forms.MouseButtons.Right
+            Case System.Windows.Forms.MouseButtons.Right
                 DeselectOrRemove(e, xHS, xVS, xHeight)
         End Select
     End Sub
@@ -1654,7 +1654,7 @@ Partial Public Class MainWindow
 
         Dim iI As Integer = sender.Tag
 
-        If MiddleButtonClicked AndAlso e.Button = Windows.Forms.MouseButtons.Middle AndAlso
+        If MiddleButtonClicked AndAlso e.Button = System.Windows.Forms.MouseButtons.Middle AndAlso
             (MiddleButtonLocation.X - Cursor.Position.X) ^ 2 + (MiddleButtonLocation.Y - Cursor.Position.Y) ^ 2 >= vo.MiddleDeltaRelease Then
             MiddleButtonClicked = False
         End If
@@ -1683,7 +1683,7 @@ Partial Public Class MainWindow
 
                 Dim xColumn = GetColumnAtEvent(e, PanelhBMSCROLL(iI))
 
-                If e.Button = Windows.Forms.MouseButtons.Left Then
+                If e.Button = System.Windows.Forms.MouseButtons.Left Then
                     Dim HiddenNote As Boolean = ModifierHiddenActive()
                     Dim LongNote As Boolean = ModifierLongNoteActive()
                     Dim Landmine As Boolean = ModifierLandmineActive()

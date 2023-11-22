@@ -1,5 +1,3 @@
-Imports System.Windows.Forms
-
 Public Class ColorPicker
     Public OrigColor As Color = Color.Black
     Public NewColor As Color = Color.Black
@@ -96,7 +94,7 @@ Public Class ColorPicker
     End Sub
 
     Private Sub PCMain_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PCMain.MouseMove
-        If Not e.Button = Windows.Forms.MouseButtons.Left Then Exit Sub
+        If Not e.Button = System.Windows.Forms.MouseButtons.Left Then Exit Sub
         mMain = e.Location
         If mMain.X < 0 Then mMain.X = 0
         If mMain.X > 255 Then mMain.X = 255
@@ -368,7 +366,7 @@ Public Class ColorPicker
     End Sub
 
     Private Sub PC1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PC1.MouseMove
-        If Not e.Button = Windows.Forms.MouseButtons.Left Then Exit Sub
+        If Not e.Button = System.Windows.Forms.MouseButtons.Left Then Exit Sub
         m1 = e.Y
         If m1 < 0 Then m1 = 0
         If m1 > 255 Then m1 = 255
@@ -475,7 +473,7 @@ Public Class ColorPicker
     End Sub
 
     Private Sub PCA_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PCA.MouseMove
-        If Not e.Button = Windows.Forms.MouseButtons.Left Then Exit Sub
+        If Not e.Button = System.Windows.Forms.MouseButtons.Left Then Exit Sub
         mAlpha = e.X
         If mAlpha < 0 Then mAlpha = 0
         If mAlpha > 255 Then mAlpha = 255

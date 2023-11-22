@@ -1,4 +1,4 @@
-Imports System.Windows.Forms
+Imports ContentAlignment = System.Drawing.ContentAlignment
 
 Public Class diagFind
     Dim bCol As Integer = 83

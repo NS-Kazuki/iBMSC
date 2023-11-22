@@ -1,5 +1,3 @@
-Imports System.Windows.Forms
-
 Public Class dgImportSM
 
     Public iResult As Integer = -1

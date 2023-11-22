@@ -17,7 +17,7 @@
     End Sub
 
     Private Sub AboutBox1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
-        If e.Button = Windows.Forms.MouseButtons.Right Then Me.Close()
+        If e.Button = System.Windows.Forms.MouseButtons.Right Then Me.Close()
     End Sub
 
     Public Sub SelectBitmap()

@@ -26,8 +26,8 @@ Namespace My
                 End With
 
                 'My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & xFN, Form1.ExceptionSave, False)
-                MainWindow.ExceptionSave(My.Application.Info.DirectoryPath & xFN)
-                MsgBox("A back-up has been saved to " & My.Application.Info.DirectoryPath & xFN, MsgBoxStyle.Information)
+                MainWindow.ExceptionSave(Application.Info.DirectoryPath & xFN)
+                MsgBox("A back-up has been saved to " & Application.Info.DirectoryPath & xFN, MsgBoxStyle.Information)
             End If
         End Sub
     End Class

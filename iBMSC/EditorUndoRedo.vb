@@ -234,9 +234,9 @@ Partial Public Class MainWindow
             Dim xUndo As New UndoRedo.RemoveNote(Notes(xI1))
             Dim xRedo As New UndoRedo.AddNote(Notes(xI1))
             xUndo.Next = BaseUndo
-                BaseUndo = xUndo
-                If BaseRedo IsNot Nothing Then BaseRedo.Next = xRedo
-                BaseRedo = xRedo
+            BaseUndo = xUndo
+            If BaseRedo IsNot Nothing Then BaseRedo.Next = xRedo
+            BaseRedo = xRedo
 
         Next
     End Sub
@@ -246,7 +246,7 @@ Partial Public Class MainWindow
 
             Dim xRedo As New UndoRedo.AddNote(Notes(xI1))
             If BaseRedo IsNot Nothing Then BaseRedo.Next = xRedo
-                BaseRedo = xRedo
+            BaseRedo = xRedo
 
         Next
         Dim xUndo As New UndoRedo.RemoveAllNotes

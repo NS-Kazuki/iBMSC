@@ -70,7 +70,7 @@
     ByVal voVLine As Pen,
     ByVal voMLine As Pen,
     ByVal voBGMWav As Pen, _
- _
+                           _
     ByVal voSelBox As Pen,
     ByVal voPECursor As Pen,
     ByVal voPEHalf As Pen,
@@ -80,7 +80,7 @@
     ByVal voPEBPM As SolidBrush,
     ByVal voPEBPMFont As Font,
     ByVal xMiddleDeltaRelease As Integer, _
- _
+                                          _
     ByVal vKHeight As Integer,
     ByVal vKFont As Font,
     ByVal vKMFont As Font,

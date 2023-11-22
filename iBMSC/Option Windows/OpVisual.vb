@@ -1,5 +1,3 @@
-Imports System.Runtime.CompilerServices
-Imports System.Windows.Forms
 Imports iBMSC.Editor
 
 Public Class OpVisual
@@ -639,7 +637,7 @@ Public Class OpVisual
         Dim s As Button = CType(sender, Button)
         Dim xColorPicker As New ColorPicker
         xColorPicker.SetOrigColor(s.BackColor)
-        If xColorPicker.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If xColorPicker.ShowDialog(Me) = System.Windows.Forms.DialogResult.Cancel Then Exit Sub
 
         cButtonChange(s, xColorPicker.NewColor)
         'eColor(xI) = xColorPicker.NewColor
@@ -658,7 +656,7 @@ Public Class OpVisual
         Dim s As Button = CType(sender, Button)
         Dim xDFont As New FontDialog
         xDFont.Font = s.Font
-        If xDFont.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If xDFont.ShowDialog(Me) = System.Windows.Forms.DialogResult.Cancel Then Exit Sub
 
         fButtonChange(s, xDFont.Font)
         'eFont(xI) = xDFont.Font
@@ -740,7 +738,7 @@ Public Class OpVisual
         If s.Name = "cText" Then xColorPicker.SetOrigColor(s.ForeColor) _
         Else xColorPicker.SetOrigColor(s.BackColor)
 
-        If xColorPicker.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If xColorPicker.ShowDialog(Me) = System.Windows.Forms.DialogResult.Cancel Then Exit Sub
 
         s.Text = To4Hex(xColorPicker.NewColor.ToArgb)
         Select Case s.Name

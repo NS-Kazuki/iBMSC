@@ -1,4 +1,4 @@
-Imports System.Windows.Forms
+Imports ContentAlignment = System.Drawing.ContentAlignment
 
 Public Class dgStatistics
 

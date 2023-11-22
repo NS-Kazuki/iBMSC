@@ -1,7 +1,7 @@
-﻿Imports NVorbis
-Imports CSCore
+﻿Imports CSCore
 Imports CSCore.Codecs
 Imports CSCore.SoundOut
+Imports NVorbis
 
 Module Audio
     Dim Output As WasapiOut
@@ -78,7 +78,6 @@ Class NVorbisSource
     Implements CSCore.ISampleSource
     Dim _stream As Stream
     Dim _vorbisReader As VorbisReader
-    Dim _waveFormat As WaveFormat
     Dim _disposed As Boolean
 
     Public Sub New(stream As Stream)
@@ -87,7 +86,7 @@ Class NVorbisSource
         End If
         _stream = stream
         _vorbisReader = New VorbisReader(stream, Nothing)
-        _waveFormat = New WaveFormat(_vorbisReader.SampleRate, 32, _vorbisReader.Channels, AudioEncoding.IeeeFloat)
+        WaveFormat = New WaveFormat(_vorbisReader.SampleRate, 32, _vorbisReader.Channels, AudioEncoding.IeeeFloat)
     End Sub
 
     Public ReadOnly Property CanSeek As Boolean Implements IAudioSource.CanSeek
@@ -97,14 +96,10 @@ Class NVorbisSource
     End Property
 
     Public ReadOnly Property WaveFormat As WaveFormat Implements IAudioSource.WaveFormat
-        Get
-            Return _waveFormat
-        End Get
-    End Property
 
     Public ReadOnly Property Length As Long Implements IAudioSource.Length
         Get
-            Return IIf(CanSeek, _vorbisReader.TotalTime.TotalSeconds * _waveFormat.SampleRate * _waveFormat.Channels, 0)
+            Return IIf(CanSeek, _vorbisReader.TotalTime.TotalSeconds * WaveFormat.SampleRate * WaveFormat.Channels, 0)
         End Get
     End Property
 

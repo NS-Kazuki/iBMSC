@@ -1,4 +1,3 @@
-Imports System.Linq
 Imports iBMSC.Editor
 
 Partial Public Class MainWindow

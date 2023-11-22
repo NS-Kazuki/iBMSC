@@ -1,0 +1,13 @@
+C:\Users\otto\Documents\IBMSC\μBMSC.exe
+C:\Users\otto\Documents\IBMSC\μBMSC.dll
+C:\Users\otto\Documents\IBMSC\μBMSC.deps.json
+C:\Users\otto\Documents\IBMSC\μBMSC.runtimeconfig.json
+C:\Users\otto\Documents\IBMSC\μBMSC.dll.config
+C:\Users\otto\Documents\IBMSC\μBMSC.pdb
+C:\Users\otto\Documents\IBMSC\af\μBMSC.resources.dll
+C:\Users\otto\Documents\IBMSC\Microsoft.Windows.SDK.NET.dll
+C:\Users\otto\Documents\IBMSC\WinRT.Runtime.dll
+C:\Users\otto\Documents\IBMSC\CSCore.dll
+C:\Users\otto\Documents\IBMSC\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\otto\Documents\IBMSC\NVorbis.dll
+C:\Users\otto\Documents\IBMSC\μBMSC.xml

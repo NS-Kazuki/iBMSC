@@ -1,5 +1,3 @@
-Imports System.Windows.Forms
-
 Public Class fLoadFileProgress
     Dim xPath(-1) As String
     Dim CancelPressed As Boolean = False
@@ -14,7 +12,7 @@ Public Class fLoadFileProgress
     End Sub
 
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
-        Me.DialogResult = Windows.Forms.DialogResult.Cancel
+        Me.DialogResult = DialogResult.Cancel
         CancelPressed = True
         Me.Close()
     End Sub

@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iBMSC", "iBMSC\iBMSC.vbproj", "{35281D99-2A97-4AA0-AC1E-6CDC78999A3D}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "iBMSC", "iBMSC\iBMSC.vbproj", "{35281D99-2A97-4AA0-AC1E-6CDC78999A3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C81D4A9-67BA-4BB3-B737-3873D3C2A34E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

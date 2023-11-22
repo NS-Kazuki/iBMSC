@@ -1,19 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35281D99-2A97-4AA0-AC1E-6CDC78999A3D}</ProjectGuid>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <StartupObject>iBMSC.My.MyApplication</StartupObject>
-    <RootNamespace>iBMSC</RootNamespace>
     <AssemblyName>μBMSC</AssemblyName>
-    <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,298 +20,107 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>μBMSC.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>True</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>μBMSC.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OptionExplicit>On</OptionExplicit>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <AssemblyTitle>μBMSC Editor</AssemblyTitle>
+    <Description>iBMS by Doaz Patched by zardoru</Description>
+    <Company>iBMS</Company>
+    <Product>μBMSC</Product>
+    <Copyright>Copyright %28C%29 [4th Age]</Copyright>
+    <AssemblyVersion>3.5.0.0</AssemblyVersion>
+    <FileVersion>3.5.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <ImportedNamespaces>System.Drawing=False,System.Drawing.Imaging=False,System.IO=False,System.Runtime.InteropServices=False,System.Windows.Forms=False,System.Windows.Forms.Automation=False,System.Windows.Forms.ComponentModel.Com2Interop=False,System.Windows.Forms.Design=False,System.Windows.Forms.Design.Behavior=False,System.Windows.Forms.Layout=False,System.Windows.Forms.PropertyGridInternal=False,System.Windows.Forms.VisualStyles=False,System.Xml=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,iBMSC=True</ImportedNamespaces>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSCore.1.2.1.2\lib\net35-client\CSCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="NVorbis, Version=0.10.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NVorbis.0.10.5\lib\net45\NVorbis.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.7.0.3\lib\net462\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
-    <Import Include="System" />
-    <Import Include="System.Collections" />
-    <Import Include="System.Collections.Generic" />
-    <Import Include="System.Data" />
     <Import Include="System.Drawing" />
-    <Import Include="System.Diagnostics" />
     <Import Include="System.Drawing.Imaging" />
     <Import Include="System.IO" />
     <Import Include="System.Runtime.InteropServices" />
     <Import Include="System.Windows.Forms" />
+    <Import Include="System.Windows.Forms.Automation" />
+    <Import Include="System.Windows.Forms.ComponentModel.Com2Interop" />
+    <Import Include="System.Windows.Forms.Design" />
+    <Import Include="System.Windows.Forms.Design.Behavior" />
+    <Import Include="System.Windows.Forms.Layout" />
+    <Import Include="System.Windows.Forms.PropertyGridInternal" />
+    <Import Include="System.Windows.Forms.VisualStyles" />
     <Import Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio.vb" />
-    <Compile Include="BMS.vb" />
-    <Compile Include="BMSONFormat.vb" />
-    <Compile Include="ChartIO.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Column.vb" />
-    <Compile Include="Dialogs\AboutBox1.designer.vb">
+    <Compile Update="Dialogs\AboutBox1.designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\AboutBox1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Dialogs\ColorPicker.designer.vb">
+    <Compile Update="Dialogs\ColorPicker.designer.vb">
       <DependentUpon>ColorPicker.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ColorPicker.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\dgImportSM.designer.vb">
+    <Compile Update="Dialogs\dgImportSM.designer.vb">
       <DependentUpon>dgImportSM.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\dgImportSM.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\dgMyO2.designer.vb">
+    <Compile Update="Dialogs\dgMyO2.designer.vb">
       <DependentUpon>dgMyO2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\dgMyO2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\dgStatistics.designer.vb">
+    <Compile Update="Dialogs\dgStatistics.designer.vb">
       <DependentUpon>dgStatistics.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\dgStatistics.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\diagFind.designer.vb">
+    <Compile Update="Dialogs\diagFind.designer.vb">
       <DependentUpon>diagFind.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\diagFind.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\fLoadFileProgress.designer.vb">
+    <Compile Update="Dialogs\fLoadFileProgress.designer.vb">
       <DependentUpon>fLoadFileProgress.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\fLoadFileProgress.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\SplashScreen1.Designer.vb">
+    <Compile Update="Dialogs\SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\SplashScreen1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditorColumns.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditorRecent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditorUndoRedo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Extensions.vb" />
-    <Compile Include="MainWindow.designer.vb">
+    <Compile Update="MainWindow.designer.vb">
       <DependentUpon>MainWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditorPersistent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MyO2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelDraw.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelEvents.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelKeyStates.vb" />
-    <Compile Include="TimeSelectionOps.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utilities.vb" />
-    <Compile Include="Option Windows\Note.vb" />
-    <Compile Include="Strings.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="My Project\Application.Designer.vb">
+    <Compile Update="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
+    <Compile Update="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
+    <Compile Update="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Option Windows\OpGeneral.designer.vb">
+    <Compile Update="Option Windows\OpGeneral.designer.vb">
       <DependentUpon>OpGeneral.vb</DependentUpon>
     </Compile>
-    <Compile Include="Option Windows\OpGeneral.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Option Windows\OpPlayer.designer.vb">
+    <Compile Update="Option Windows\OpPlayer.designer.vb">
       <DependentUpon>OpPlayer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Option Windows\OpPlayer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Option Windows\OpVisual.designer.vb">
+    <Compile Update="Option Windows\OpVisual.designer.vb">
       <DependentUpon>OpVisual.vb</DependentUpon>
     </Compile>
-    <Compile Include="Option Windows\OpVisual.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UndoRedo.vb" />
-    <Compile Include="VisualSettings.vb" />
-    <Compile Include="Waveform.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XMLUtil.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dialogs\AboutBox1.resx">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ColorPicker.resx">
-      <DependentUpon>ColorPicker.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\dgImportSM.resx">
-      <DependentUpon>dgImportSM.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\dgMyO2.af.resx">
-      <DependentUpon>dgMyO2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\dgMyO2.resx">
-      <DependentUpon>dgMyO2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\dgStatistics.resx">
-      <DependentUpon>dgStatistics.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\diagFind.resx">
-      <DependentUpon>diagFind.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\fLoadFileProgress.resx">
-      <DependentUpon>fLoadFileProgress.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Option Windows\OpGeneral.resx">
-      <DependentUpon>OpGeneral.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Option Windows\OpPlayer.resx">
-      <DependentUpon>OpPlayer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Option Windows\OpVisual.resx">
-      <DependentUpon>OpVisual.vb</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="My Project\app.manifest" />
-    <None Include="My Project\Application.myapp">
+    <None Update="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -336,12 +137,23 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="CSCore" Version="1.2.1.2" />
+    <PackageReference Include="NVorbis" Version="0.10.5" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SCompareMethod.Designer.vb" />
+    <Compile Remove="SCompareMethod.vb" />
+    <EmbeddedResource Remove="SCompareMethod.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
 </Project>

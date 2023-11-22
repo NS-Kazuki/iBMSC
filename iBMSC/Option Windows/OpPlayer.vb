@@ -1,5 +1,3 @@
-Imports System.Windows.Forms
-
 Public Class OpPlayer
     Dim pArg() As MainWindow.PlayerArguments
     'Dim ImplicitChange As Boolean = False
@@ -90,7 +88,7 @@ Public Class OpPlayer
                                       Path.GetDirectoryName(Replace(TPath.Text, "<apppath>", My.Application.Info.DirectoryPath)))
         xDOpen.Filter = Strings.FileType.EXE & "|*.exe"
         xDOpen.DefaultExt = "exe"
-        If xDOpen.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If xDOpen.ShowDialog = System.Windows.Forms.DialogResult.Cancel Then Exit Sub
         TPath.Text = Replace(xDOpen.FileName, My.Application.Info.DirectoryPath, "<apppath>")
     End Sub
 
