@@ -5,3 +5,16 @@ dotnet_diagnostic.CA1416.severity = none
 
 # SYSLIB0001: 类型或成员已过时
 dotnet_diagnostic.SYSLIB0001.severity = none
+
+
+# IDE0081: "ByVal" 关键字是不必要的，可以删除。
+dotnet_diagnostic.IDE0081.severity = suggestion
+
+# IDE0002: 简化成员访问
+dotnet_diagnostic.IDE0002.severity = suggestion
+
+# IDE0001: 简化名称
+dotnet_diagnostic.IDE0001.severity = suggestion
+
+# IDE0049: 简化名称
+dotnet_diagnostic.IDE0049.severity = suggestion
