@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cg5CQNNeIpxbNlOWh6nsxNim7+mLnb4p3xYVJLwoCRK9NiZ7S32S/nawQabcXtLEBM6h5jF6HUBKA/+0IqMQBw==",
+  "dgSpecHash": "CLiS5w4HNp9MmTLjWAgf0VCv25n50zntPZxZU1feOi6uQLso8dYBBhKdFffGu4xHKkpaedtnaPhohQtMCRGZag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\iBMSC.vbproj",
+  "projectFilePath": "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\iBMSC.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\otto\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512",
     "C:\\Users\\otto\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",

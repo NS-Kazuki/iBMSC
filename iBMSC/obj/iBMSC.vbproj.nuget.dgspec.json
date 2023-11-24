@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\iBMSC.vbproj": {}
+    "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\iBMSC.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\iBMSC.vbproj": {
+    "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\iBMSC.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\iBMSC.vbproj",
+        "projectUniqueName": "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\iBMSC.vbproj",
         "projectName": "μBMSC",
-        "projectPath": "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\iBMSC.vbproj",
+        "projectPath": "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\iBMSC.vbproj",
         "packagesPath": "C:\\Users\\otto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\otto\\Documents\\iBMSC-master\\iBMSC\\obj\\",
+        "outputPath": "C:\\Users\\qwert\\Documents\\GitHub\\iBMSC\\iBMSC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
