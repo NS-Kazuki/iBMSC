@@ -2,7 +2,7 @@
 Imports iBMSC.Editor
 
 Partial Public Class MainWindow
-    Private Sub OpenBMS(ByVal xStrAll As String)
+    Private Sub OpenBMS(xStrAll As String)
         KMouseOver = -1
 
         'Line feed validation: will remove some empty lines
@@ -602,7 +602,7 @@ AddExpansion:       xExpansion &= sLine & vbCrLf
         Return Ret
     End Function
 
-    Private Function OpenSM(ByVal xStrAll As String) As Boolean
+    Private Function OpenSM(xStrAll As String) As Boolean
         KMouseOver = -1
 
         Dim xStrLine() As String = Split(xStrAll, vbCrLf)
@@ -787,7 +787,7 @@ Jump1:
     End Function
 
     ''' <summary>Do not clear Undo.</summary>
-    Private Sub OpeniBMSC(ByVal Path As String)
+    Private Sub OpeniBMSC(Path As String)
         KMouseOver = -1
 
         Dim br As New BinaryReader(New FileStream(Path, FileMode.Open, FileAccess.Read), System.Text.Encoding.Unicode)
@@ -831,20 +831,20 @@ Jump1:
 
                     ErrorCheck = xPref And &H2
                     TBErrorCheck.Checked = ErrorCheck
-                    TBErrorCheck_Click(TBErrorCheck, New System.EventArgs)
+                    TBErrorCheck_Click(TBErrorCheck, New EventArgs)
 
                     PreviewOnClick = xPref And &H4
                     TBPreviewOnClick.Checked = PreviewOnClick
-                    TBPreviewOnClick_Click(TBPreviewOnClick, New System.EventArgs)
+                    TBPreviewOnClick_Click(TBPreviewOnClick, New EventArgs)
 
                     ShowFileName = xPref And &H8
                     TBShowFileName.Checked = ShowFileName
-                    TBShowFileName_Click(TBShowFileName, New System.EventArgs)
+                    TBShowFileName_Click(TBShowFileName, New EventArgs)
 
                     Rscratch = xPref And &H10
                     If TBChangePlaySide.Checked <> Rscratch Then
                         TBChangePlaySide.Checked = Rscratch
-                        TBChangePlaySide_Click(TBChangePlaySide, New System.EventArgs)
+                        TBChangePlaySide_Click(TBChangePlaySide, New EventArgs)
                     Else
                         TBChangePlaySide.Checked = Rscratch
                     End If
@@ -943,7 +943,7 @@ Jump1:
                     Dim xBeatChangeMode As Integer = br.ReadByte
                     Dim xBeatChangeList As RadioButton() = {CBeatPreserve, CBeatMeasure, CBeatCut, CBeatScale}
                     xBeatChangeList(xBeatChangeMode).Checked = True
-                    CBeatPreserve_Click(xBeatChangeList(xBeatChangeMode), New System.EventArgs)
+                    CBeatPreserve_Click(xBeatChangeList(xBeatChangeMode), New EventArgs)
 
                     Dim xBeatCount As Integer = br.ReadInt32
                     For xxi As Integer = 1 To xBeatCount
@@ -1032,14 +1032,14 @@ EndOfSub:
         POStatusRefresh()
     End Sub
 
-    Private Sub SaveiBMSC(ByVal Path As String)
+    Private Sub SaveiBMSC(Path As String)
         CalculateGreatestVPosition()
         SortByVPositionInsertion()
         UpdatePairing()
 
         Try
 
-            Dim bw As New BinaryWriter(New IO.FileStream(Path, FileMode.Create), System.Text.Encoding.Unicode)
+            Dim bw As New BinaryWriter(New FileStream(Path, FileMode.Create), System.Text.Encoding.Unicode)
 
             'bw.Write("iBMSC".ToCharArray)
             bw.Write(&H534D4269)
@@ -1243,7 +1243,7 @@ EndOfSub:
 
     End Sub
 
-    Private Sub SaveBMSON(ByVal Path As String)
+    Private Sub SaveBMSON(Path As String)
         CalculateGreatestVPosition()
         SortByVPositionInsertion()
         UpdatePairing()
@@ -1402,7 +1402,7 @@ EndOfSub:
                             hidden_note_list(value) = New List(Of MineNote)
                         End If
                         hidden_note_list(value).Add(New MineNote(position, lane, 0))
-                    ElseIf Notes(i).length > 0 AndAlso NTInput Then
+                    ElseIf Notes(i).Length > 0 AndAlso NTInput Then
                         If Not note_list.ContainsKey(value) Then
                             note_list(value) = New List(Of BmsonNote)
                         End If
@@ -1418,8 +1418,9 @@ EndOfSub:
                             note_list(value).Add(note)
                         Else
                             If Notes(i).Value \ 10000 <> LnObj AndAlso Notes(i).Value <> Notes(Notes(i).LNPair).Value Then
-                                Dim note = New BmsonNote(position, lane)
-                                note.up = True
+                                Dim note = New BmsonNote(position, lane) With {
+                                    .up = True
+                                }
                                 note_list(value).Add(note)
                             End If
                         End If
@@ -1489,7 +1490,7 @@ EndOfSub:
 
             options.IncludeFields = True
             options.WriteIndented = True
-            Dim bw As New BinaryWriter(New IO.FileStream(Path, FileMode.Create), System.Text.Encoding.UTF8)
+            Dim bw As New BinaryWriter(New FileStream(Path, FileMode.Create), System.Text.Encoding.UTF8)
             Dim str = JsonSerializer.SerializeToUtf8Bytes(format, options)
             bw.Write(str)
             bw.Close()
@@ -1500,12 +1501,12 @@ EndOfSub:
 
     Function CalcBMSTotal() As Double
         Dim notes = CalculateTotalNotes()
-        Return System.Math.Max((720.0 / (800 + notes) * notes), 200.0)
+        Return Math.Max((720.0 / (800 + notes) * notes), 200.0)
     End Function
 
     Function CalcBMSONTotal(total As Double) As Double
         Dim notes = CalculateTotalNotes()
-        Return total / System.Math.Max((800.0 / (700 + notes) * notes), 250.0) * 100
+        Return total / Math.Max((800.0 / (700 + notes) * notes), 250.0) * 100
     End Function
 
 End Class
