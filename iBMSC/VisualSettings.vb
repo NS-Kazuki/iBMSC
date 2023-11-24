@@ -62,35 +62,35 @@
         End Sub
 
         Public Sub New(
-    ByVal voTitle As SolidBrush,
-    ByVal voTitleFont As Font,
-    ByVal voBg As SolidBrush,
-    ByVal voGrid As Pen,
-    ByVal voSub As Pen,
-    ByVal voVLine As Pen,
-    ByVal voMLine As Pen,
-    ByVal voBGMWav As Pen, _
-                           _
-    ByVal voSelBox As Pen,
-    ByVal voPECursor As Pen,
-    ByVal voPEHalf As Pen,
-    ByVal voPEDeltaMouseOver As Integer,
-    ByVal voPEMouseOver As Pen,
-    ByVal voPESel As SolidBrush,
-    ByVal voPEBPM As SolidBrush,
-    ByVal voPEBPMFont As Font,
-    ByVal xMiddleDeltaRelease As Integer, _
-                                          _
-    ByVal vKHeight As Integer,
-    ByVal vKFont As Font,
-    ByVal vKMFont As Font,
-    ByVal vKLabelVShift As Integer,
-    ByVal vKLabelHShift As Integer,
-    ByVal vKLabelHShiftL As Integer,
-    ByVal vKMouseOver As Pen,
-    ByVal vKMouseOverE As Pen,
-    ByVal vKSelected As Pen,
-    ByVal vKOpacity As Single)
+    voTitle As SolidBrush,
+    voTitleFont As Font,
+    voBg As SolidBrush,
+    voGrid As Pen,
+    voSub As Pen,
+    voVLine As Pen,
+    voMLine As Pen,
+    voBGMWav As Pen, _
+                     _
+    voSelBox As Pen,
+    voPECursor As Pen,
+    voPEHalf As Pen,
+    voPEDeltaMouseOver As Integer,
+    voPEMouseOver As Pen,
+    voPESel As SolidBrush,
+    voPEBPM As SolidBrush,
+    voPEBPMFont As Font,
+    xMiddleDeltaRelease As Integer, _
+                                    _
+    vKHeight As Integer,
+    vKFont As Font,
+    vKMFont As Font,
+    vKLabelVShift As Integer,
+    vKLabelHShift As Integer,
+    vKLabelHShiftL As Integer,
+    vKMouseOver As Pen,
+    vKMouseOverE As Pen,
+    vKSelected As Pen,
+    vKOpacity As Single)
 
             ColumnTitle = voTitle
             ColumnTitleFont = voTitleFont

@@ -25,16 +25,16 @@ Partial Class MainWindow
         TBLangDef = New ToolStripMenuItem()
         TBLangRefresh = New ToolStripMenuItem()
         ToolStripSeparator9 = New ToolStripSeparator()
-        mnLanguage = New ToolStripMenuItem()
         TBLanguage = New ToolStripDropDownButton()
+        mnLanguage = New ToolStripMenuItem()
         cmnTheme = New ContextMenuStrip(components)
         TBThemeDef = New ToolStripMenuItem()
         TBThemeSave = New ToolStripMenuItem()
         TBThemeRefresh = New ToolStripMenuItem()
         TBThemeLoadComptability = New ToolStripMenuItem()
         ToolStripSeparator6 = New ToolStripSeparator()
-        mnTheme = New ToolStripMenuItem()
         TBTheme = New ToolStripDropDownButton()
+        mnTheme = New ToolStripMenuItem()
         POptionsScroll = New Panel()
         POptions = New Panel()
         POExpansion = New Panel()
@@ -287,10 +287,6 @@ Partial Class MainWindow
         POBModify = New ToolStripMenuItem()
         POBMirror = New ToolStripMenuItem()
         POConvert = New ToolStripDropDownButton()
-        mnPreview = New ToolStripMenuItem()
-        mnPlayB = New ToolStripMenuItem()
-        mnPlay = New ToolStripMenuItem()
-        mnStop = New ToolStripMenuItem()
         TBMain = New ToolStrip()
         TBNew = New ToolStripButton()
         TBOpen = New ToolStripSplitButton()
@@ -383,6 +379,10 @@ Partial Class MainWindow
         HSL = New HScrollBar()
         POptionsResizer = New Button()
         ToolTipUniversal = New ToolTip(components)
+        mnPlayB = New ToolStripMenuItem()
+        mnPlay = New ToolStripMenuItem()
+        mnStop = New ToolStripMenuItem()
+        mnPreview = New ToolStripMenuItem()
         cmnLanguage.SuspendLayout()
         cmnTheme.SuspendLayout()
         POptionsScroll.SuspendLayout()
@@ -470,7 +470,7 @@ Partial Class MainWindow
         ' 
         cmnLanguage.Items.AddRange(New ToolStripItem() {TBLangDef, TBLangRefresh, ToolStripSeparator9})
         cmnLanguage.Name = "cmnLanguage"
-        cmnLanguage.OwnerItem = TBLanguage
+        cmnLanguage.OwnerItem = mnLanguage
         cmnLanguage.Size = New Size(126, 54)
         ' 
         ' TBLangDef
@@ -491,14 +491,6 @@ Partial Class MainWindow
         ToolStripSeparator9.Name = "ToolStripSeparator9"
         ToolStripSeparator9.Size = New Size(122, 6)
         ' 
-        ' mnLanguage
-        ' 
-        mnLanguage.DropDown = cmnLanguage
-        mnLanguage.Image = CType(resources.GetObject("mnLanguage.Image"), Image)
-        mnLanguage.Name = "mnLanguage"
-        mnLanguage.Size = New Size(247, 22)
-        mnLanguage.Text = "&Language"
-        ' 
         ' TBLanguage
         ' 
         TBLanguage.DisplayStyle = ToolStripItemDisplayStyle.Image
@@ -509,11 +501,19 @@ Partial Class MainWindow
         TBLanguage.Size = New Size(29, 22)
         TBLanguage.Text = "Language"
         ' 
+        ' mnLanguage
+        ' 
+        mnLanguage.DropDown = cmnLanguage
+        mnLanguage.Image = CType(resources.GetObject("mnLanguage.Image"), Image)
+        mnLanguage.Name = "mnLanguage"
+        mnLanguage.Size = New Size(247, 22)
+        mnLanguage.Text = "&Language"
+        ' 
         ' cmnTheme
         ' 
         cmnTheme.Items.AddRange(New ToolStripItem() {TBThemeDef, TBThemeSave, TBThemeRefresh, TBThemeLoadComptability, ToolStripSeparator6})
         cmnTheme.Name = "cmnLanguage"
-        cmnTheme.OwnerItem = TBTheme
+        cmnTheme.OwnerItem = mnTheme
         cmnTheme.Size = New Size(266, 98)
         ' 
         ' TBThemeDef
@@ -547,14 +547,6 @@ Partial Class MainWindow
         ToolStripSeparator6.Name = "ToolStripSeparator6"
         ToolStripSeparator6.Size = New Size(262, 6)
         ' 
-        ' mnTheme
-        ' 
-        mnTheme.DropDown = cmnTheme
-        mnTheme.Image = CType(resources.GetObject("mnTheme.Image"), Image)
-        mnTheme.Name = "mnTheme"
-        mnTheme.Size = New Size(247, 22)
-        mnTheme.Text = "&Theme"
-        ' 
         ' TBTheme
         ' 
         TBTheme.DisplayStyle = ToolStripItemDisplayStyle.Image
@@ -564,6 +556,14 @@ Partial Class MainWindow
         TBTheme.Name = "TBTheme"
         TBTheme.Size = New Size(29, 22)
         TBTheme.Text = "Theme"
+        ' 
+        ' mnTheme
+        ' 
+        mnTheme.DropDown = cmnTheme
+        mnTheme.Image = CType(resources.GetObject("mnTheme.Image"), Image)
+        mnTheme.Name = "mnTheme"
+        mnTheme.Size = New Size(247, 22)
+        mnTheme.Text = "&Theme"
         ' 
         ' POptionsScroll
         ' 
@@ -609,7 +609,7 @@ Partial Class MainWindow
         POExpansionInner.Controls.Add(TExpansion)
         POExpansionInner.Controls.Add(POExpansionResizer)
         POExpansionInner.Dock = DockStyle.Top
-        POExpansionInner.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        POExpansionInner.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         POExpansionInner.Location = New Point(0, 20)
         POExpansionInner.Name = "POExpansionInner"
         POExpansionInner.Size = New Size(183, 250)
@@ -648,7 +648,7 @@ Partial Class MainWindow
         POExpansionSwitch.BackColor = SystemColors.Control
         POExpansionSwitch.Cursor = Cursors.Hand
         POExpansionSwitch.Dock = DockStyle.Top
-        POExpansionSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POExpansionSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POExpansionSwitch.Location = New Point(0, 0)
         POExpansionSwitch.Name = "POExpansionSwitch"
         POExpansionSwitch.Size = New Size(183, 20)
@@ -824,7 +824,7 @@ Partial Class MainWindow
         ' LBeat
         ' 
         LBeat.Dock = DockStyle.Fill
-        LBeat.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        LBeat.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LBeat.IntegralHeight = False
         LBeat.ItemHeight = 14
         LBeat.Items.AddRange(New Object() {"000: 15.984375 (1023/64)"})
@@ -911,7 +911,7 @@ Partial Class MainWindow
         POBeatSwitch.BackColor = SystemColors.Control
         POBeatSwitch.Cursor = Cursors.Hand
         POBeatSwitch.Dock = DockStyle.Top
-        POBeatSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POBeatSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POBeatSwitch.Location = New Point(0, 0)
         POBeatSwitch.Name = "POBeatSwitch"
         POBeatSwitch.Size = New Size(183, 20)
@@ -956,7 +956,7 @@ Partial Class MainWindow
         ' LBMP
         ' 
         LBMP.Dock = DockStyle.Fill
-        LBMP.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        LBMP.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LBMP.IntegralHeight = False
         LBMP.ItemHeight = 14
         LBMP.Location = New Point(3, 30)
@@ -1045,7 +1045,7 @@ Partial Class MainWindow
         POBMPSwitch.CheckState = CheckState.Checked
         POBMPSwitch.Cursor = Cursors.Hand
         POBMPSwitch.Dock = DockStyle.Top
-        POBMPSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POBMPSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POBMPSwitch.Location = New Point(0, 0)
         POBMPSwitch.Name = "POBMPSwitch"
         POBMPSwitch.Size = New Size(183, 20)
@@ -1111,7 +1111,7 @@ Partial Class MainWindow
         ' LWAV
         ' 
         LWAV.Dock = DockStyle.Fill
-        LWAV.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        LWAV.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LWAV.IntegralHeight = False
         LWAV.ItemHeight = 14
         LWAV.Location = New Point(3, 113)
@@ -1260,7 +1260,7 @@ Partial Class MainWindow
         POWAVSwitch.CheckState = CheckState.Checked
         POWAVSwitch.Cursor = Cursors.Hand
         POWAVSwitch.Dock = DockStyle.Top
-        POWAVSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POWAVSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POWAVSwitch.Location = New Point(0, 0)
         POWAVSwitch.Name = "POWAVSwitch"
         POWAVSwitch.Size = New Size(183, 20)
@@ -1687,7 +1687,7 @@ Partial Class MainWindow
         POWaveFormSwitch.BackColor = SystemColors.Control
         POWaveFormSwitch.Cursor = Cursors.Hand
         POWaveFormSwitch.Dock = DockStyle.Top
-        POWaveFormSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POWaveFormSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POWaveFormSwitch.Location = New Point(0, 0)
         POWaveFormSwitch.Name = "POWaveFormSwitch"
         POWaveFormSwitch.Size = New Size(183, 20)
@@ -2102,7 +2102,7 @@ Partial Class MainWindow
         POGridSwitch.CheckState = CheckState.Checked
         POGridSwitch.Cursor = Cursors.Hand
         POGridSwitch.Dock = DockStyle.Top
-        POGridSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POGridSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POGridSwitch.Location = New Point(0, 0)
         POGridSwitch.Name = "POGridSwitch"
         POGridSwitch.Size = New Size(183, 20)
@@ -2814,7 +2814,7 @@ Partial Class MainWindow
         POHeaderSwitch.CheckState = CheckState.Checked
         POHeaderSwitch.Cursor = Cursors.Hand
         POHeaderSwitch.Dock = DockStyle.Top
-        POHeaderSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        POHeaderSwitch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         POHeaderSwitch.Location = New Point(0, 0)
         POHeaderSwitch.Name = "POHeaderSwitch"
         POHeaderSwitch.Size = New Size(183, 20)
@@ -3395,7 +3395,6 @@ Partial Class MainWindow
         ' 
         cmnConversion.Items.AddRange(New ToolStripItem() {POBLong, POBShort, POBLongShort, ToolStripSeparator10, POBHidden, POBVisible, POBHiddenVisible, ToolStripSeparator11, POBModify, POBMirror})
         cmnConversion.Name = "cmnLanguage"
-        cmnConversion.OwnerItem = mnConversion
         cmnConversion.Size = New Size(241, 192)
         ' 
         ' POBLong
@@ -3475,37 +3474,6 @@ Partial Class MainWindow
         POConvert.Name = "POConvert"
         POConvert.Size = New Size(29, 22)
         POConvert.Text = "Convert Notes"
-        ' 
-        ' mnPreview
-        ' 
-        mnPreview.DropDownItems.AddRange(New ToolStripItem() {mnPlayB, mnPlay, mnStop})
-        mnPreview.Name = "mnPreview"
-        mnPreview.Size = New Size(64, 21)
-        mnPreview.Text = "&Preview"
-        ' 
-        ' mnPlayB
-        ' 
-        mnPlayB.Image = CType(resources.GetObject("mnPlayB.Image"), Image)
-        mnPlayB.Name = "mnPlayB"
-        mnPlayB.ShortcutKeys = Keys.F5
-        mnPlayB.Size = New Size(214, 22)
-        mnPlayB.Text = "Play from &beginning"
-        ' 
-        ' mnPlay
-        ' 
-        mnPlay.Image = CType(resources.GetObject("mnPlay.Image"), Image)
-        mnPlay.Name = "mnPlay"
-        mnPlay.ShortcutKeys = Keys.F6
-        mnPlay.Size = New Size(214, 22)
-        mnPlay.Text = "&Play from here"
-        ' 
-        ' mnStop
-        ' 
-        mnStop.Image = CType(resources.GetObject("mnStop.Image"), Image)
-        mnStop.Name = "mnStop"
-        mnStop.ShortcutKeys = Keys.F7
-        mnStop.Size = New Size(214, 22)
-        mnStop.Text = "&Stop"
         ' 
         ' TBMain
         ' 
@@ -3957,7 +3925,7 @@ Partial Class MainWindow
         ' 
         ' BVCReverse
         ' 
-        BVCReverse.BackColor = Color.FromArgb(192, 192, 255)
+        BVCReverse.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         BVCReverse.DisplayStyle = ToolStripItemDisplayStyle.Text
         BVCReverse.ImageTransparentColor = Color.Magenta
         BVCReverse.Name = "BVCReverse"
@@ -3972,7 +3940,7 @@ Partial Class MainWindow
         ' 
         ' TVCM
         ' 
-        TVCM.BackColor = Color.FromArgb(255, 192, 192)
+        TVCM.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
         TVCM.BorderStyle = BorderStyle.None
         TVCM.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         TVCM.Name = "TVCM"
@@ -3988,7 +3956,7 @@ Partial Class MainWindow
         ' 
         ' TVCD
         ' 
-        TVCD.BackColor = Color.FromArgb(255, 192, 192)
+        TVCD.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
         TVCD.BorderStyle = BorderStyle.None
         TVCD.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         TVCD.Name = "TVCD"
@@ -3998,7 +3966,7 @@ Partial Class MainWindow
         ' 
         ' BVCApply
         ' 
-        BVCApply.BackColor = Color.FromArgb(192, 192, 255)
+        BVCApply.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         BVCApply.DisplayStyle = ToolStripItemDisplayStyle.Text
         BVCApply.ImageTransparentColor = Color.Magenta
         BVCApply.Name = "BVCApply"
@@ -4008,7 +3976,7 @@ Partial Class MainWindow
         ' 
         ' TVCBPM
         ' 
-        TVCBPM.BackColor = Color.FromArgb(255, 192, 192)
+        TVCBPM.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
         TVCBPM.BorderStyle = BorderStyle.None
         TVCBPM.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         TVCBPM.Name = "TVCBPM"
@@ -4018,7 +3986,7 @@ Partial Class MainWindow
         ' 
         ' BVCCalculate
         ' 
-        BVCCalculate.BackColor = Color.FromArgb(192, 192, 255)
+        BVCCalculate.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         BVCCalculate.DisplayStyle = ToolStripItemDisplayStyle.Text
         BVCCalculate.ImageTransparentColor = Color.Magenta
         BVCCalculate.Name = "BVCCalculate"
@@ -4028,7 +3996,7 @@ Partial Class MainWindow
         ' 
         ' BConvertStop
         ' 
-        BConvertStop.BackColor = Color.FromArgb(192, 192, 255)
+        BConvertStop.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         BConvertStop.DisplayStyle = ToolStripItemDisplayStyle.Text
         BConvertStop.ImageTransparentColor = Color.Magenta
         BConvertStop.Name = "BConvertStop"
@@ -4059,7 +4027,7 @@ Partial Class MainWindow
         ' FSW
         ' 
         FSW.AutoSize = False
-        FSW.ForeColor = Color.FromArgb(128, 64, 0)
+        FSW.ForeColor = Color.FromArgb(CByte(128), CByte(64), CByte(0))
         FSW.Name = "FSW"
         FSW.Size = New Size(40, 17)
         FSW.Text = "01"
@@ -4120,7 +4088,7 @@ Partial Class MainWindow
         ' FST
         ' 
         FST.ForeColor = Color.Olive
-        FST.LinkColor = Color.FromArgb(0, 0, 255)
+        FST.LinkColor = Color.FromArgb(CByte(0), CByte(0), CByte(255))
         FST.Name = "FST"
         FST.Size = New Size(71, 17)
         FST.Text = "Length = 0"
@@ -4180,7 +4148,7 @@ Partial Class MainWindow
         PMain.Controls.Add(MainPanelScroll)
         PMain.Controls.Add(HS)
         PMain.Dock = DockStyle.Fill
-        PMain.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMain.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMain.ForeColor = Color.White
         PMain.Location = New Point(5, 0)
         PMain.Name = "PMain"
@@ -4192,7 +4160,7 @@ Partial Class MainWindow
         ' 
         PMainIn.BackColor = Color.Black
         PMainIn.Dock = DockStyle.Fill
-        PMainIn.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMainIn.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMainIn.ForeColor = Color.White
         PMainIn.Location = New Point(0, 0)
         PMainIn.Name = "PMainIn"
@@ -4260,7 +4228,7 @@ Partial Class MainWindow
         PMainR.Controls.Add(RightPanelScroll)
         PMainR.Controls.Add(HSR)
         PMainR.Dock = DockStyle.Right
-        PMainR.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMainR.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMainR.ForeColor = Color.White
         PMainR.Location = New Point(876, 0)
         PMainR.Name = "PMainR"
@@ -4272,7 +4240,7 @@ Partial Class MainWindow
         ' 
         PMainInR.BackColor = Color.Black
         PMainInR.Dock = DockStyle.Fill
-        PMainInR.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMainInR.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMainInR.ForeColor = Color.White
         PMainInR.Location = New Point(0, 0)
         PMainInR.Name = "PMainInR"
@@ -4312,7 +4280,7 @@ Partial Class MainWindow
         PMainL.Controls.Add(LeftPanelScroll)
         PMainL.Controls.Add(HSL)
         PMainL.Dock = DockStyle.Left
-        PMainL.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMainL.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMainL.ForeColor = Color.White
         PMainL.Location = New Point(0, 0)
         PMainL.Name = "PMainL"
@@ -4324,7 +4292,7 @@ Partial Class MainWindow
         ' 
         PMainInL.BackColor = Color.Black
         PMainInL.Dock = DockStyle.Fill
-        PMainInL.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        PMainInL.Font = New Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         PMainInL.ForeColor = Color.White
         PMainInL.Location = New Point(0, 0)
         PMainInL.Name = "PMainInL"
@@ -4371,6 +4339,37 @@ Partial Class MainWindow
         POptionsResizer.TabStop = False
         POptionsResizer.UseVisualStyleBackColor = True
         ' 
+        ' mnPlayB
+        ' 
+        mnPlayB.Image = CType(resources.GetObject("mnPlayB.Image"), Image)
+        mnPlayB.Name = "mnPlayB"
+        mnPlayB.ShortcutKeys = Keys.F5
+        mnPlayB.Size = New Size(214, 22)
+        mnPlayB.Text = "Play from &beginning"
+        ' 
+        ' mnPlay
+        ' 
+        mnPlay.Image = CType(resources.GetObject("mnPlay.Image"), Image)
+        mnPlay.Name = "mnPlay"
+        mnPlay.ShortcutKeys = Keys.F6
+        mnPlay.Size = New Size(214, 22)
+        mnPlay.Text = "&Play from here"
+        ' 
+        ' mnStop
+        ' 
+        mnStop.Image = CType(resources.GetObject("mnStop.Image"), Image)
+        mnStop.Name = "mnStop"
+        mnStop.ShortcutKeys = Keys.F7
+        mnStop.Size = New Size(214, 22)
+        mnStop.Text = "&Stop"
+        ' 
+        ' mnPreview
+        ' 
+        mnPreview.DropDownItems.AddRange(New ToolStripItem() {mnPlayB, mnPlay, mnStop})
+        mnPreview.Name = "mnPreview"
+        mnPreview.Size = New Size(64, 21)
+        mnPreview.Text = "&Preview"
+        ' 
         ' MainWindow
         ' 
         AllowDrop = True
@@ -4381,7 +4380,7 @@ Partial Class MainWindow
         Controls.Add(POptionsResizer)
         Controls.Add(POptionsScroll)
         DoubleBuffered = True
-        Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         KeyPreview = True
         MainMenuStrip = mnMain
@@ -4547,10 +4546,6 @@ Partial Class MainWindow
     Friend WithEvents mnMyO2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator19 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents mnOptions As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnPreview As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnPlayB As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnPlay As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnStop As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnTimeSelect As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnSelect As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnWrite As System.Windows.Forms.ToolStripMenuItem
@@ -4867,4 +4862,8 @@ Partial Class MainWindow
     Friend WithEvents TBWavIncrease As ToolStripButton
     Friend WithEvents TimeStatusLabel As ToolStripStatusLabel
     Friend WithEvents BConvertStop As ToolStripButton
+    Friend WithEvents mnPreview As ToolStripMenuItem
+    Friend WithEvents mnPlayB As ToolStripMenuItem
+    Friend WithEvents mnPlay As ToolStripMenuItem
+    Friend WithEvents mnStop As ToolStripMenuItem
 End Class

@@ -13,16 +13,16 @@ Public Class MainWindow
     'Public Shared Function DwmIsCompositionEnabled(ByRef en As Integer) As Integer
     'End Function
     '<System.Runtime.InteropServices.DllImport("dwmapi.dll")> _
-    'Public Shared Function DwmExtendFrameIntoClientArea(ByVal hwnd As IntPtr, ByRef margin As MARGINS) As Integer
+    'Public Shared Function DwmExtendFrameIntoClientArea(hwnd As IntPtr, ByRef margin As MARGINS) As Integer
     'End Function
-    Public Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" (hwnd As IntPtr, wMsg As Integer, wParam As Integer, ByVal lParam As Integer) As Integer
+    Public Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" (hwnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer) As Integer
     Public Declare Function ReleaseCapture Lib "user32.dll" Alias "ReleaseCapture" () As Integer
 
-    'Private Declare Auto Function GetWindowLong Lib "user32" (ByVal hWnd As IntPtr, ByVal nIndex As Integer) As Integer
-    'Private Declare Auto Function SetWindowLong Lib "user32" (ByVal hWnd As IntPtr, ByVal nIndex As Integer, ByVal dwNewLong As Integer) As Integer
-    'Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As IntPtr, ByVal hWndInsertAfter As IntPtr, ByVal x As Integer, ByVal y As Integer, ByVal cx As Integer, ByVal cy As Integer, ByVal wFlags As Integer) As Integer
+    'Private Declare Auto Function GetWindowLong Lib "user32" (hWnd As IntPtr, nIndex As Integer) As Integer
+    'Private Declare Auto Function SetWindowLong Lib "user32" (hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
+    'Private Declare Function SetWindowPos Lib "user32.dll" (hWnd As IntPtr, hWndInsertAfter As IntPtr, x As Integer, y As Integer, cx As Integer, cy As Integer, wFlags As Integer) As Integer
     '<DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)> _
-    'Private Shared Function SetWindowText(ByVal hwnd As IntPtr, ByVal lpString As String) As Boolean
+    'Private Shared Function SetWindowText(hwnd As IntPtr, lpString As String) As Boolean
     'End Function
 
     'Private Const GWL_STYLE As Integer = -16
@@ -965,7 +965,7 @@ Public Class MainWindow
             isFullScreen = True
         Else
             Me.SuspendLayout()
-            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
+            Me.FormBorderStyle = FormBorderStyle.Sizable
             ToolStripContainer1.TopToolStripPanelVisible = True
             Me.WindowState = FormWindowState.Normal
 
@@ -1021,7 +1021,7 @@ Public Class MainWindow
     End Sub
 
 
-    Public Function GCD(ByVal NumA As Double, ByVal NumB As Double) As Double
+    Public Function GCD(NumA As Double, NumB As Double) As Double
         Dim xNMax As Double = NumA
         Dim xNMin As Double = NumB
         If NumA < NumB Then
@@ -1053,7 +1053,7 @@ Public Class MainWindow
 
     <DllImport("user32.dll")> Private Shared Function LoadCursorFromFile(fileName As String) As IntPtr
     End Function
-    Public Shared Function ActuallyLoadCursor(ByVal path As String) As Cursor
+    Public Shared Function ActuallyLoadCursor(path As String) As Cursor
         Return New Cursor(LoadCursorFromFile(path))
     End Function
 
@@ -1061,7 +1061,7 @@ Public Class MainWindow
         Audio.Finalize()
     End Sub
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'On Error Resume Next
         Me.TopMost = True
         Me.SuspendLayout()
@@ -1331,7 +1331,7 @@ EndSearch:
 
 
 
-    Public Sub ExceptionSave(ByVal Path As String)
+    Public Sub ExceptionSave(Path As String)
         SaveiBMSC(Path)
     End Sub
 
@@ -1372,7 +1372,7 @@ EndSearch:
         Return False
     End Function
 
-    Private Sub TBNew_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles TBNew.Click, mnNew.Click
+    Private Sub TBNew_Click(sender As Object, e As EventArgs) Handles TBNew.Click, mnNew.Click
 
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
@@ -1423,7 +1423,7 @@ EndSearch:
         POStatusRefresh()
     End Sub
 
-    Private Sub TBNewC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) 'Handles TBNewC.Click
+    Private Sub TBNewC_Click(sender As Object, e As EventArgs) 'Handles TBNewC.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1460,7 +1460,7 @@ EndSearch:
         OpenBMS(Clipboard.GetText)
     End Sub
 
-    Private Sub TBOpen_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBOpen.ButtonClick, mnOpen.Click
+    Private Sub TBOpen_ButtonClick(sender As Object, e As EventArgs) Handles TBOpen.ButtonClick, mnOpen.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1482,7 +1482,7 @@ EndSearch:
         'pIsSaved.Visible = Not IsSaved
     End Sub
 
-    Private Sub TBImportIBMSC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBImportIBMSC.Click, mnImportIBMSC.Click
+    Private Sub TBImportIBMSC_Click(sender As Object, e As EventArgs) Handles TBImportIBMSC.Click, mnImportIBMSC.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1503,7 +1503,7 @@ EndSearch:
         'pIsSaved.Visible = Not IsSaved
     End Sub
 
-    Private Sub TBImportSM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBImportSM.Click, mnImportSM.Click
+    Private Sub TBImportSM_Click(sender As Object, e As EventArgs) Handles TBImportSM.Click, mnImportSM.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1524,7 +1524,7 @@ EndSearch:
         'pIsSaved.Visible = Not IsSaved
     End Sub
 
-    Private Sub TBSave_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBSave.ButtonClick, mnSave.Click
+    Private Sub TBSave_ButtonClick(sender As Object, e As EventArgs) Handles TBSave.ButtonClick, mnSave.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1555,7 +1555,7 @@ EndSearch:
         If BeepWhileSaved Then Beep()
     End Sub
 
-    Private Sub TBSaveAs_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBSaveAs.Click, mnSaveAs.Click
+    Private Sub TBSaveAs_Click(sender As Object, e As EventArgs) Handles TBSaveAs.Click, mnSaveAs.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1584,7 +1584,7 @@ EndSearch:
         If BeepWhileSaved Then Beep()
     End Sub
 
-    Private Sub TBExportIBMSC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBExportIBMSC.Click, mnExportIBMSC.Click
+    Private Sub TBExportIBMSC_Click(sender As Object, e As EventArgs) Handles TBExportIBMSC.Click, mnExportIBMSC.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1602,7 +1602,7 @@ EndSearch:
         If BeepWhileSaved Then Beep()
     End Sub
 
-    Private Sub TBExportBMSON_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBExportBMSON.Click, mnExportBMSON.Click
+    Private Sub TBExportBMSON_Click(sender As Object, e As EventArgs) Handles TBExportBMSON.Click, mnExportBMSON.Click
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -1620,12 +1620,12 @@ EndSearch:
         If BeepWhileSaved Then Beep()
     End Sub
 
-    Private Sub VSGotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles MainPanelScroll.GotFocus, LeftPanelScroll.GotFocus, RightPanelScroll.GotFocus
+    Private Sub VSGotFocus(sender As Object, e As EventArgs) Handles MainPanelScroll.GotFocus, LeftPanelScroll.GotFocus, RightPanelScroll.GotFocus
         PanelFocus = sender.Tag
         spMain(PanelFocus).Focus()
     End Sub
 
-    Private Sub VSValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles MainPanelScroll.ValueChanged, LeftPanelScroll.ValueChanged, RightPanelScroll.ValueChanged
+    Private Sub VSValueChanged(sender As Object, e As EventArgs) Handles MainPanelScroll.ValueChanged, LeftPanelScroll.ValueChanged, RightPanelScroll.ValueChanged
         Dim iI As Integer = sender.Tag
 
         ' az: We got a wheel event when we're zooming in/out
@@ -1666,7 +1666,7 @@ EndSearch:
         RefreshPanel(iI, spMain(iI).DisplayRectangle)
     End Sub
 
-    Private Sub cVSLock_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cVSLockL.CheckedChanged, cVSLock.CheckedChanged, cVSLockR.CheckedChanged
+    Private Sub cVSLock_CheckedChanged(sender As Object, e As EventArgs) Handles cVSLockL.CheckedChanged, cVSLock.CheckedChanged, cVSLockR.CheckedChanged
         Dim iI As Integer = sender.Tag
         spLock(iI) = sender.Checked
         If Not spLock(iI) Then Return
@@ -1677,12 +1677,12 @@ EndSearch:
         'POHeaderB.Text = spDiff(0) & "_" & spDiff(1) & "_" & spDiff(2)
     End Sub
 
-    Private Sub HSGotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles HS.GotFocus, HSL.GotFocus, HSR.GotFocus
+    Private Sub HSGotFocus(sender As Object, e As EventArgs) Handles HS.GotFocus, HSL.GotFocus, HSR.GotFocus
         PanelFocus = sender.Tag
         spMain(PanelFocus).Focus()
     End Sub
 
-    Private Sub HSValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles HS.ValueChanged, HSL.ValueChanged, HSR.ValueChanged
+    Private Sub HSValueChanged(sender As Object, e As EventArgs) Handles HS.ValueChanged, HSL.ValueChanged, HSR.ValueChanged
         Dim iI As Integer = sender.Tag
         If Not LastMouseDownLocation = New Point(-1, -1) And Not HSValue = -1 Then LastMouseDownLocation.X += (HSValue - sender.Value) * gxWidth
         PanelhBMSCROLL(iI) = sender.Value
@@ -1690,7 +1690,7 @@ EndSearch:
         RefreshPanel(iI, spMain(iI).DisplayRectangle)
     End Sub
 
-    Private Sub TBSelect_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBSelect.Click, mnSelect.Click
+    Private Sub TBSelect_Click(sender As Object, e As EventArgs) Handles TBSelect.Click, mnSelect.Click
         TBSelect.Checked = True
         TBWrite.Checked = False
         TBTimeSelect.Checked = False
@@ -1713,7 +1713,7 @@ EndSearch:
         POStatusRefresh()
     End Sub
 
-    Private Sub TBWrite_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBWrite.Click, mnWrite.Click
+    Private Sub TBWrite_Click(sender As Object, e As EventArgs) Handles TBWrite.Click, mnWrite.Click
         TBSelect.Checked = False
         TBWrite.Checked = True
         TBTimeSelect.Checked = False
@@ -1736,7 +1736,7 @@ EndSearch:
         POStatusRefresh()
     End Sub
 
-    Private Sub TBPostEffects_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBTimeSelect.Click, mnTimeSelect.Click
+    Private Sub TBPostEffects_Click(sender As Object, e As EventArgs) Handles TBTimeSelect.Click, mnTimeSelect.Click
         TBSelect.Checked = False
         TBWrite.Checked = False
         TBTimeSelect.Checked = True
@@ -1762,17 +1762,17 @@ EndSearch:
         POStatusRefresh()
     End Sub
 
-    Private Sub CGHeight_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CGHeight.ValueChanged
+    Private Sub CGHeight_ValueChanged(sender As Object, e As EventArgs) Handles CGHeight.ValueChanged
         gxHeight = CSng(CGHeight.Value)
         CGHeight2.Value = IIf(CGHeight.Value * 4 < CGHeight2.Maximum, CDec(CGHeight.Value * 4), CGHeight2.Maximum)
         RefreshPanelAll()
     End Sub
 
-    Private Sub CGHeight2_Scroll(ByVal sender As Object, ByVal e As System.EventArgs) Handles CGHeight2.Scroll
+    Private Sub CGHeight2_Scroll(sender As Object, e As EventArgs) Handles CGHeight2.Scroll
         CGHeight.Value = CGHeight2.Value / 4
     End Sub
 
-    Private Sub CGWidth_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CGWidth.ValueChanged
+    Private Sub CGWidth_ValueChanged(sender As Object, e As EventArgs) Handles CGWidth.ValueChanged
         gxWidth = CSng(CGWidth.Value)
         CGWidth2.Value = IIf(CGWidth.Value * 4 < CGWidth2.Maximum, CDec(CGWidth.Value * 4), CGWidth2.Maximum)
 
@@ -1786,19 +1786,19 @@ EndSearch:
         RefreshPanelAll()
     End Sub
 
-    Private Sub CGWidth2_Scroll(ByVal sender As Object, ByVal e As System.EventArgs) Handles CGWidth2.Scroll
+    Private Sub CGWidth2_Scroll(sender As Object, e As EventArgs) Handles CGWidth2.Scroll
         CGWidth.Value = CGWidth2.Value / 4
     End Sub
 
-    Private Sub CGDivide_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGDivide.ValueChanged
+    Private Sub CGDivide_ValueChanged(sender As Object, e As EventArgs) Handles CGDivide.ValueChanged
         gDivide = CGDivide.Value
         RefreshPanelAll()
     End Sub
-    Private Sub CGSub_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGSub.ValueChanged
+    Private Sub CGSub_ValueChanged(sender As Object, e As EventArgs) Handles CGSub.ValueChanged
         gSub = CGSub.Value
         RefreshPanelAll()
     End Sub
-    Private Sub BGSlash_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BGSlash.Click
+    Private Sub BGSlash_Click(sender As Object, e As EventArgs) Handles BGSlash.Click
         Dim xd As Integer = Val(InputBox(Strings.Messages.PromptSlashValue, , gSlash))
         If xd = 0 Then Exit Sub
         If xd > CGDivide.Maximum Then xd = CGDivide.Maximum
@@ -1807,12 +1807,12 @@ EndSearch:
     End Sub
 
 
-    Private Sub CGSnap_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGSnap.CheckedChanged
+    Private Sub CGSnap_CheckedChanged(sender As Object, e As EventArgs) Handles CGSnap.CheckedChanged
         gSnap = CGSnap.Checked
         RefreshPanelAll()
     End Sub
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Dim xI1 As Integer
 
         Select Case PanelFocus
@@ -1864,7 +1864,7 @@ EndSearch:
 
     End Sub
 
-    Private Sub TimerMiddle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerMiddle.Tick
+    Private Sub TimerMiddle_Tick(sender As Object, e As EventArgs) Handles TimerMiddle.Tick
         If Not MiddleButtonClicked Then TimerMiddle.Enabled = False : Return
 
         Dim xI1 As Integer
@@ -1933,7 +1933,7 @@ EndSearch:
         End Try
     End Sub
 
-    Private Sub LWAV_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LWAV.Click
+    Private Sub LWAV_Click(sender As Object, e As EventArgs) Handles LWAV.Click
         If TBWrite.Checked Then FSW.Text = C10to36(LWAV.SelectedIndex + 1)
 
         PreviewNote("", True)
@@ -1944,7 +1944,7 @@ EndSearch:
         PreviewNote(xFileLocation, False)
     End Sub
 
-    Private Sub LWAV_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles LWAV.DoubleClick
+    Private Sub LWAV_DoubleClick(sender As Object, e As EventArgs) Handles LWAV.DoubleClick
         Dim xDWAV As New OpenFileDialog With {
             .DefaultExt = "wav",
             .Filter = Strings.FileType._wave & "|*.wav;*.ogg;*.mp3;*.flac|" &
@@ -1963,7 +1963,7 @@ EndSearch:
         If IsSaved Then SetIsSaved(False)
     End Sub
 
-    Private Sub LWAV_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles LWAV.KeyDown
+    Private Sub LWAV_KeyDown(sender As Object, e As KeyEventArgs) Handles LWAV.KeyDown
         Select Case e.KeyCode
             Case Keys.Delete
                 hWAV(LWAV.SelectedIndex + 1) = ""
@@ -1972,7 +1972,7 @@ EndSearch:
         End Select
     End Sub
 
-    Private Sub LBMP_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles LBMP.DoubleClick
+    Private Sub LBMP_DoubleClick(sender As Object, e As EventArgs) Handles LBMP.DoubleClick
         Dim xDBMP As New OpenFileDialog With {
             .DefaultExt = "bmp",
             .Filter = Strings.FileType._image & "|*.bmp;*.png;*.jpg;*.jpeg;.gif|" &
@@ -1997,7 +1997,7 @@ EndSearch:
         If IsSaved Then SetIsSaved(False)
     End Sub
 
-    Private Sub LBMP_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles LBMP.KeyDown
+    Private Sub LBMP_KeyDown(sender As Object, e As KeyEventArgs) Handles LBMP.KeyDown
         Select Case e.KeyCode
             Case Keys.Delete
                 hBMP(LBMP.SelectedIndex + 1) = ""
@@ -2006,7 +2006,7 @@ EndSearch:
         End Select
     End Sub
 
-    Private Sub TBErrorCheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBErrorCheck.Click, mnErrorCheck.Click
+    Private Sub TBErrorCheck_Click(sender As Object, e As EventArgs) Handles TBErrorCheck.Click, mnErrorCheck.Click
         ErrorCheck = sender.Checked
         TBErrorCheck.Checked = ErrorCheck
         mnErrorCheck.Checked = ErrorCheck
@@ -2015,7 +2015,7 @@ EndSearch:
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBPreviewOnClick_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBPreviewOnClick.Click, mnPreviewOnClick.Click
+    Private Sub TBPreviewOnClick_Click(sender As Object, e As EventArgs) Handles TBPreviewOnClick.Click, mnPreviewOnClick.Click
         PreviewNote("", True)
         PreviewOnClick = sender.Checked
         TBPreviewOnClick.Checked = PreviewOnClick
@@ -2024,7 +2024,7 @@ EndSearch:
         mnPreviewOnClick.Image = IIf(PreviewOnClick, My.Resources.x16PreviewOnClick, My.Resources.x16PreviewOnClickN)
     End Sub
 
-    Private Sub TBChangePlaySide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBChangePlaySide.Click, mnChangePlaySide.Click
+    Private Sub TBChangePlaySide_Click(sender As Object, e As EventArgs) Handles TBChangePlaySide.Click, mnChangePlaySide.Click
         Rscratch = sender.Checked
         ChangePlaySide(True)
         TBChangePlaySide.Checked = Rscratch
@@ -2034,12 +2034,12 @@ EndSearch:
         RefreshPanelAll()
     End Sub
 
-    'Private Sub TBPreviewErrorCheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    'Private Sub TBPreviewErrorCheck_Click(sender As Object, e As EventArgs)
     '    PreviewErrorCheck = TBPreviewErrorCheck.Checked
     '    TBPreviewErrorCheck.Image = IIf(PreviewErrorCheck, My.Resources.x16PreviewCheck, My.Resources.x16PreviewCheckN)
     'End Sub
 
-    Private Sub TBShowFileName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBShowFileName.Click, mnShowFileName.Click
+    Private Sub TBShowFileName_Click(sender As Object, e As EventArgs) Handles TBShowFileName.Click, mnShowFileName.Click
         ShowFileName = sender.Checked
         TBShowFileName.Checked = ShowFileName
         mnShowFileName.Checked = ShowFileName
@@ -2048,7 +2048,7 @@ EndSearch:
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBCut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBCut.Click, mnCut.Click
+    Private Sub TBCut_Click(sender As Object, e As EventArgs) Handles TBCut.Click, mnCut.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -2071,7 +2071,7 @@ EndSearch:
         CalculateGreatestVPosition()
     End Sub
 
-    Private Sub TBCopy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBCopy.Click, mnCopy.Click
+    Private Sub TBCopy_Click(sender As Object, e As EventArgs) Handles TBCopy.Click, mnCopy.Click
         Try
             CopyNotes()
         Catch ex As Exception
@@ -2081,7 +2081,7 @@ EndSearch:
         POStatusRefresh()
     End Sub
 
-    Private Sub TBPaste_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBPaste.Click, mnPaste.Click
+    Private Sub TBPaste_Click(sender As Object, e As EventArgs) Handles TBPaste.Click, mnPaste.Click
         AddNotesFromClipboard()
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -2100,17 +2100,17 @@ EndSearch:
         CalculateGreatestVPosition()
     End Sub
 
-    'Private Function pArgPath(ByVal I As Integer)
+    'Private Function pArgPath(I As Integer)
     '    Return Mid(pArgs(I), 1, InStr(pArgs(I), vbCrLf) - 1)
     'End Function
 
-    Private Function GetFileName(ByVal s As String) As String
+    Private Function GetFileName(s As String) As String
         Dim fslash As Integer = InStrRev(s, "/")
         Dim bslash As Integer = InStrRev(s, "\")
         Return Mid(s, IIf(fslash > bslash, fslash, bslash) + 1)
     End Function
 
-    Private Function ExcludeFileName(ByVal s As String) As String
+    Private Function ExcludeFileName(s As String) As String
         Dim fslash As Integer = InStrRev(s, "/")
         Dim bslash As Integer = InStrRev(s, "\")
         If (bslash Or fslash) = 0 Then Return ""
@@ -2139,7 +2139,7 @@ EndSearch:
         xArg = pArgs(CurrentPlayer)
     End Sub
 
-    Private Sub TBPlay_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBPlay.Click, mnPlay.Click
+    Private Sub TBPlay_Click(sender As Object, e As EventArgs) Handles TBPlay.Click, mnPlay.Click
         'Dim xStr() As String = Split(pArgs(CurrentPlayer), vbCrLf)
         Dim xArg As MainWindow.PlayerArguments = pArgs(CurrentPlayer)
 
@@ -2163,7 +2163,7 @@ EndSearch:
         System.Diagnostics.Process.Start(PrevCodeToReal(xArg.Path), PrevCodeToReal(xArg.aHere))
     End Sub
 
-    Private Sub TBPlayB_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBPlayB.Click, mnPlayB.Click
+    Private Sub TBPlayB_Click(sender As Object, e As EventArgs) Handles TBPlayB.Click, mnPlayB.Click
         'Dim xStr() As String = Split(pArgs(CurrentPlayer), vbCrLf)
         Dim xArg As MainWindow.PlayerArguments = pArgs(CurrentPlayer)
 
@@ -2187,7 +2187,7 @@ EndSearch:
         System.Diagnostics.Process.Start(PrevCodeToReal(xArg.Path), PrevCodeToReal(xArg.aBegin))
     End Sub
 
-    Private Sub TBStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBStop.Click, mnStop.Click
+    Private Sub TBStop_Click(sender As Object, e As EventArgs) Handles TBStop.Click, mnStop.Click
         'Dim xStr() As String = Split(pArgs(CurrentPlayer), vbCrLf)
         Dim xArg As MainWindow.PlayerArguments = pArgs(CurrentPlayer)
 
@@ -2203,7 +2203,7 @@ EndSearch:
         System.Diagnostics.Process.Start(PrevCodeToReal(xArg.Path), PrevCodeToReal(xArg.aStop))
     End Sub
 
-    Private Sub AddTempFileList(ByVal s As String)
+    Private Sub AddTempFileList(s As String)
         Dim xAdd As Boolean = True
         If pTempFileNames IsNot Nothing Then
             For Each xStr1 As String In pTempFileNames
@@ -2217,7 +2217,7 @@ EndSearch:
         End If
     End Sub
 
-    Private Sub TBStatistics_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBStatistics.Click, mnStatistics.Click
+    Private Sub TBStatistics_Click(sender As Object, e As EventArgs) Handles TBStatistics.Click, mnStatistics.Click
         SortByVPositionInsertion()
         UpdatePairing()
 
@@ -2467,11 +2467,11 @@ StartCount:     If Not NTInput Then
         Return stop_contrib + bpm_contrib
     End Function
 
-    Private Sub POBStorm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBStorm.Click
+    Private Sub POBStorm_Click(sender As Object, e As EventArgs) Handles POBStorm.Click
 
     End Sub
 
-    Private Sub POBMirror_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBMirror.Click
+    Private Sub POBMirror_Click(sender As Object, e As EventArgs) Handles POBMirror.Click
         Dim xI1 As Integer
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
@@ -2547,7 +2547,7 @@ StartCount:     If Not NTInput Then
 
 
 
-    Private Sub TVCM_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TVCM.KeyDown
+    Private Sub TVCM_KeyDown(sender As Object, e As KeyEventArgs) Handles TVCM.KeyDown
         If e.KeyCode = Keys.Enter Then
             TVCM.Text = Val(TVCM.Text)
             If Val(TVCM.Text) <= 0 Then
@@ -2556,12 +2556,12 @@ StartCount:     If Not NTInput Then
                 TVCM.Focus()
                 TVCM.SelectAll()
             Else
-                BVCApply_Click(BVCApply, New System.EventArgs)
+                BVCApply_Click(BVCApply, New EventArgs)
             End If
         End If
     End Sub
 
-    Private Sub TVCM_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TVCM.LostFocus
+    Private Sub TVCM_LostFocus(sender As Object, e As EventArgs) Handles TVCM.LostFocus
         TVCM.Text = Val(TVCM.Text)
         If Val(TVCM.Text) <= 0 Then
             MsgBox(Strings.Messages.NegativeFactorError, MsgBoxStyle.Critical, Strings.Messages.Err)
@@ -2571,7 +2571,7 @@ StartCount:     If Not NTInput Then
         End If
     End Sub
 
-    Private Sub TVCD_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TVCD.KeyDown
+    Private Sub TVCD_KeyDown(sender As Object, e As KeyEventArgs) Handles TVCD.KeyDown
         If e.KeyCode = Keys.Enter Then
             TVCD.Text = Val(TVCD.Text)
             If Val(TVCD.Text) <= 0 Then
@@ -2580,12 +2580,12 @@ StartCount:     If Not NTInput Then
                 TVCD.Focus()
                 TVCD.SelectAll()
             Else
-                BVCApply_Click(BVCApply, New System.EventArgs)
+                BVCApply_Click(BVCApply, New EventArgs)
             End If
         End If
     End Sub
 
-    Private Sub TVCD_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TVCD.LostFocus
+    Private Sub TVCD_LostFocus(sender As Object, e As EventArgs) Handles TVCD.LostFocus
         TVCD.Text = Val(TVCD.Text)
         If Val(TVCD.Text) <= 0 Then
             MsgBox(Strings.Messages.NegativeDivisorError, MsgBoxStyle.Critical, Strings.Messages.Err)
@@ -2595,7 +2595,7 @@ StartCount:     If Not NTInput Then
         End If
     End Sub
 
-    Private Sub TVCBPM_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TVCBPM.KeyDown
+    Private Sub TVCBPM_KeyDown(sender As Object, e As KeyEventArgs) Handles TVCBPM.KeyDown
         If e.KeyCode = Keys.Enter Then
             TVCBPM.Text = Val(TVCBPM.Text)
             If Val(TVCBPM.Text) <= 0 Then
@@ -2604,12 +2604,12 @@ StartCount:     If Not NTInput Then
                 TVCBPM.Focus()
                 TVCBPM.SelectAll()
             Else
-                BVCCalculate_Click(BVCCalculate, New System.EventArgs)
+                BVCCalculate_Click(BVCCalculate, New EventArgs)
             End If
         End If
     End Sub
 
-    Private Sub TVCBPM_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TVCBPM.LostFocus
+    Private Sub TVCBPM_LostFocus(sender As Object, e As EventArgs) Handles TVCBPM.LostFocus
         TVCBPM.Text = Val(TVCBPM.Text)
         If Val(TVCBPM.Text) <= 0 Then
             MsgBox(Strings.Messages.NegativeDivisorError, MsgBoxStyle.Critical, Strings.Messages.Err)
@@ -2646,7 +2646,7 @@ StartCount:     If Not NTInput Then
 
 
 
-    Private Sub TBUndo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBUndo.Click, mnUndo.Click
+    Private Sub TBUndo_Click(sender As Object, e As EventArgs) Handles TBUndo.Click, mnUndo.Click
         KMouseOver = -1
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
@@ -2660,7 +2660,7 @@ StartCount:     If Not NTInput Then
         mnRedo.Enabled = sRedo(sIA).ofType <> UndoRedo.opNoOperation
     End Sub
 
-    Private Sub TBRedo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBRedo.Click, mnRedo.Click
+    Private Sub TBRedo_Click(sender As Object, e As EventArgs) Handles TBRedo.Click, mnRedo.Click
         KMouseOver = -1
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
@@ -2702,7 +2702,7 @@ StartCount:     If Not NTInput Then
 
 
 
-    Private Sub TBAbout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub TBAbout_Click(sender As Object, e As EventArgs)
         'If My.Computer.FileSystem.FileExists(My.Application.Info.DirectoryPath & "\About.png") Then
         'Aboutboxx1.SelectBitmap()
         Dim Aboutboxx1 As New AboutBox1 With {
@@ -2717,7 +2717,7 @@ StartCount:     If Not NTInput Then
         'End If
     End Sub
 
-    Private Sub TBOptions_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBVOptions.Click, mnVOptions.Click
+    Private Sub TBOptions_Click(sender As Object, e As EventArgs) Handles TBVOptions.Click, mnVOptions.Click
 
         Dim xDiag As New OpVisual(vo, column, LWAV.Font)
         xDiag.ShowDialog(Me)
@@ -2725,7 +2725,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub AddToPOWAV(ByVal xPath() As String)
+    Private Sub AddToPOWAV(xPath() As String)
         Dim xIndices(LWAV.SelectedIndices.Count - 1) As Integer
         LWAV.SelectedIndices.CopyTo(xIndices, 0)
         If xIndices.Length = 0 Then Exit Sub
@@ -2793,7 +2793,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POWAV_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles POWAV.DragDrop
+    Private Sub POWAV_DragDrop(sender As Object, e As DragEventArgs) Handles POWAV.DragDrop
         ReDim DDFileName(-1)
         If Not e.Data.GetDataPresent(DataFormats.FileDrop) Then Return
 
@@ -2808,7 +2808,7 @@ StartCount:     If Not NTInput Then
         AddToPOWAV(xPath)
     End Sub
 
-    Private Sub POWAV_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles POWAV.DragEnter
+    Private Sub POWAV_DragEnter(sender As Object, e As DragEventArgs) Handles POWAV.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
             DDFileName = FilterFileBySupported(CType(e.Data.GetData(DataFormats.FileDrop), String()), SupportedAudioExtension)
@@ -2818,16 +2818,16 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POWAV_DragLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles POWAV.DragLeave
+    Private Sub POWAV_DragLeave(sender As Object, e As EventArgs) Handles POWAV.DragLeave
         ReDim DDFileName(-1)
         RefreshPanelAll()
     End Sub
 
-    Private Sub POWAV_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles POWAV.Resize
+    Private Sub POWAV_Resize(sender As Object, e As EventArgs) Handles POWAV.Resize
         LWAV.Height = sender.Height - 25
     End Sub
 
-    Private Sub AddToPOBMP(ByVal xPath() As String)
+    Private Sub AddToPOBMP(xPath() As String)
         Dim xIndices(LBMP.SelectedIndices.Count - 1) As Integer
         LBMP.SelectedIndices.CopyTo(xIndices, 0)
         If xIndices.Length = 0 Then Exit Sub
@@ -2895,7 +2895,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBMP_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles POBMP.DragDrop
+    Private Sub POBMP_DragDrop(sender As Object, e As DragEventArgs) Handles POBMP.DragDrop
         ReDim DDFileName(-1)
         If Not e.Data.GetDataPresent(DataFormats.FileDrop) Then Return
 
@@ -2910,7 +2910,7 @@ StartCount:     If Not NTInput Then
         AddToPOBMP(xPath)
     End Sub
 
-    Private Sub POBMP_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles POBMP.DragEnter
+    Private Sub POBMP_DragEnter(sender As Object, e As DragEventArgs) Handles POBMP.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
             DDFileName = FilterFileBySupported(CType(e.Data.GetData(DataFormats.FileDrop), String()), SupportedImageExtension)
@@ -2920,42 +2920,42 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBMP_DragLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles POBMP.DragLeave
+    Private Sub POBMP_DragLeave(sender As Object, e As EventArgs) Handles POBMP.DragLeave
         ReDim DDFileName(-1)
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBMP_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles POBMP.Resize
+    Private Sub POBMP_Resize(sender As Object, e As EventArgs) Handles POBMP.Resize
         LBMP.Height = sender.Height - 25
     End Sub
-    Private Sub POBeat_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles POBeat.Resize
+    Private Sub POBeat_Resize(sender As Object, e As EventArgs) Handles POBeat.Resize
         LBeat.Height = POBeat.Height - 25
     End Sub
-    Private Sub POExpansion_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles POExpansion.Resize
+    Private Sub POExpansion_Resize(sender As Object, e As EventArgs) Handles POExpansion.Resize
         TExpansion.Height = POExpansion.Height - 2
     End Sub
 
-    Private Sub mn_DropDownClosed(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub mn_DropDownClosed(sender As Object, e As EventArgs)
         sender.ForeColor = Color.White
     End Sub
-    Private Sub mn_DropDownOpened(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub mn_DropDownOpened(sender As Object, e As EventArgs)
         sender.ForeColor = Color.Black
     End Sub
-    Private Sub mn_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub mn_MouseEnter(sender As Object, e As EventArgs)
         If sender.Pressed Then Return
         sender.ForeColor = Color.Black
     End Sub
-    Private Sub mn_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub mn_MouseLeave(sender As Object, e As EventArgs)
         If sender.Pressed Then Return
         sender.ForeColor = Color.White
     End Sub
 
-    Private Sub TBPOptions_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBPOptions.Click, mnPOptions.Click
+    Private Sub TBPOptions_Click(sender As Object, e As EventArgs) Handles TBPOptions.Click, mnPOptions.Click
         Dim xDOp As New OpPlayer(CurrentPlayer)
         xDOp.ShowDialog(Me)
     End Sub
 
-    Private Sub THGenre_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles _
+    Private Sub THGenre_TextChanged(sender As Object, e As EventArgs) Handles _
     THGenre.TextChanged, THTitle.TextChanged, THArtist.TextChanged, THPlayLevel.TextChanged, CHRank.SelectedIndexChanged, TExpansion.TextChanged,
     THSubTitle.TextChanged, THSubArtist.TextChanged, THStageFile.TextChanged, THBanner.TextChanged, THBackBMP.TextChanged,
     CHDifficulty.SelectedIndexChanged, THExRank.TextChanged, THTotal.TextChanged, THComment.TextChanged, THPreview.TextChanged, CHLnmode.SelectedIndexChanged
@@ -2968,7 +2968,7 @@ StartCount:     If Not NTInput Then
         End If
     End Sub
 
-    Private Sub CHLnObj_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CHLnObj.SelectedIndexChanged
+    Private Sub CHLnObj_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CHLnObj.SelectedIndexChanged
         If IsSaved Then SetIsSaved(False)
         LnObj = CHLnObj.SelectedIndex
         UpdatePairing()
@@ -3059,7 +3059,7 @@ StartCount:     If Not NTInput Then
         CalculateTotalPlayableNotes()
     End Sub
 
-    Private Sub TBWavIncrease_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBWavIncrease.Click
+    Private Sub TBWavIncrease_Click(sender As Object, e As EventArgs) Handles TBWavIncrease.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3069,7 +3069,7 @@ StartCount:     If Not NTInput Then
         AddUndo(xUndo, xBaseRedo.Next)
     End Sub
 
-    Private Sub TBNTInput_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBNTInput.Click, mnNTInput.Click
+    Private Sub TBNTInput_Click(sender As Object, e As EventArgs) Handles TBNTInput.Click, mnNTInput.Click
         'Dim xUndo As String = "NT_" & CInt(NTInput) & "_0" & vbCrLf & "KZ" & vbCrLf & sCmdKsAll(False)
         'Dim xRedo As String = "NT_" & CInt(Not NTInput) & "_1"
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -3100,78 +3100,78 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub THBPM_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles THBPM.ValueChanged
+    Private Sub THBPM_ValueChanged(sender As Object, e As EventArgs) Handles THBPM.ValueChanged
         If Notes IsNot Nothing Then Notes(0).Value = THBPM.Value * 10000 : RefreshPanelAll()
         If IsSaved Then SetIsSaved(False)
     End Sub
 
-    Private Sub TWPosition_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWPosition.ValueChanged
+    Private Sub TWPosition_ValueChanged(sender As Object, e As EventArgs) Handles TWPosition.ValueChanged
         wPosition = TWPosition.Value
         TWPosition2.Value = IIf(wPosition > TWPosition2.Maximum, TWPosition2.Maximum, wPosition)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWLeft_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWLeft.ValueChanged
+    Private Sub TWLeft_ValueChanged(sender As Object, e As EventArgs) Handles TWLeft.ValueChanged
         wLeft = TWLeft.Value
         TWLeft2.Value = IIf(wLeft > TWLeft2.Maximum, TWLeft2.Maximum, wLeft)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWWidth_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWWidth.ValueChanged
+    Private Sub TWWidth_ValueChanged(sender As Object, e As EventArgs) Handles TWWidth.ValueChanged
         wWidth = TWWidth.Value
         TWWidth2.Value = IIf(wWidth > TWWidth2.Maximum, TWWidth2.Maximum, wWidth)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWPrecision_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWPrecision.ValueChanged
+    Private Sub TWPrecision_ValueChanged(sender As Object, e As EventArgs) Handles TWPrecision.ValueChanged
         wPrecision = TWPrecision.Value
         TWPrecision2.Value = IIf(wPrecision > TWPrecision2.Maximum, TWPrecision2.Maximum, wPrecision)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWTransparency_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWTransparency.ValueChanged
+    Private Sub TWTransparency_ValueChanged(sender As Object, e As EventArgs) Handles TWTransparency.ValueChanged
         TWTransparency2.Value = TWTransparency.Value
         vo.pBGMWav.Color = Color.FromArgb(TWTransparency.Value, vo.pBGMWav.Color)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWSaturation_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWSaturation.ValueChanged
+    Private Sub TWSaturation_ValueChanged(sender As Object, e As EventArgs) Handles TWSaturation.ValueChanged
         Dim xColor As Color = vo.pBGMWav.Color
         TWSaturation2.Value = TWSaturation.Value
         vo.pBGMWav.Color = HSL2RGB(xColor.GetHue, TWSaturation.Value, xColor.GetBrightness * 1000, xColor.A)
         RefreshPanelAll()
     End Sub
 
-    Private Sub TWPosition2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWPosition2.Scroll
+    Private Sub TWPosition2_Scroll(sender As Object, e As EventArgs) Handles TWPosition2.Scroll
         TWPosition.Value = TWPosition2.Value
     End Sub
 
-    Private Sub TWLeft2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWLeft2.Scroll
+    Private Sub TWLeft2_Scroll(sender As Object, e As EventArgs) Handles TWLeft2.Scroll
         TWLeft.Value = TWLeft2.Value
     End Sub
 
-    Private Sub TWWidth2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWWidth2.Scroll
+    Private Sub TWWidth2_Scroll(sender As Object, e As EventArgs) Handles TWWidth2.Scroll
         TWWidth.Value = TWWidth2.Value
     End Sub
 
-    Private Sub TWPrecision2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWPrecision2.Scroll
+    Private Sub TWPrecision2_Scroll(sender As Object, e As EventArgs) Handles TWPrecision2.Scroll
         TWPrecision.Value = TWPrecision2.Value
     End Sub
 
-    Private Sub TWTransparency2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWTransparency2.Scroll
+    Private Sub TWTransparency2_Scroll(sender As Object, e As EventArgs) Handles TWTransparency2.Scroll
         TWTransparency.Value = TWTransparency2.Value
     End Sub
 
-    Private Sub TWSaturation2_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TWSaturation2.Scroll
+    Private Sub TWSaturation2_Scroll(sender As Object, e As EventArgs) Handles TWSaturation2.Scroll
         TWSaturation.Value = TWSaturation2.Value
     End Sub
 
-    Private Sub TBLangDef_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBLangDef.Click
+    Private Sub TBLangDef_Click(sender As Object, e As EventArgs) Handles TBLangDef.Click
         DispLang = ""
         MsgBox(Strings.Messages.PreferencePostpone, MsgBoxStyle.Information)
     End Sub
 
-    Private Sub TBLangRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBLangRefresh.Click
+    Private Sub TBLangRefresh_Click(sender As Object, e As EventArgs) Handles TBLangRefresh.Click
         For xI1 As Integer = cmnLanguage.Items.Count - 1 To 3 Step -1
             Try
                 cmnLanguage.Items.RemoveAt(xI1)
@@ -3201,7 +3201,7 @@ StartCount:     If Not NTInput Then
         HSR.Maximum = nLeft(gColumns) + column(niB).Width
     End Sub
 
-    Private Sub CHPlayer_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CHPlayer.SelectedIndexChanged
+    Private Sub CHPlayer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CHPlayer.SelectedIndexChanged
         If CHPlayer.SelectedIndex = -1 Then CHPlayer.SelectedIndex = 0
 
         iPlayer = CHPlayer.SelectedIndex
@@ -3256,13 +3256,13 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub CGB_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGB.ValueChanged
+    Private Sub CGB_ValueChanged(sender As Object, e As EventArgs) Handles CGB.ValueChanged
         gColumns = niB + CGB.Value - 1
         UpdateColumnsX()
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBGOptions_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBGOptions.Click, mnGOptions.Click
+    Private Sub TBGOptions_Click(sender As Object, e As EventArgs) Handles TBGOptions.Click, mnGOptions.Click
         Dim xTE As Integer
         Select Case UCase(EncodingToString(TextEncoding)) ' az: wow seriously? is there really no better way? 
             Case "SYSTEM ANSI" : xTE = 0
@@ -3302,7 +3302,7 @@ StartCount:     If Not NTInput Then
         End If
     End Sub
 
-    Private Sub POBLong_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBLong.Click
+    Private Sub POBLong_Click(sender As Object, e As EventArgs) Handles POBLong.Click
         If NTInput Then Exit Sub
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -3321,7 +3321,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBNormal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBShort.Click
+    Private Sub POBNormal_Click(sender As Object, e As EventArgs) Handles POBShort.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3349,7 +3349,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBNormalLong_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBLongShort.Click
+    Private Sub POBNormalLong_Click(sender As Object, e As EventArgs) Handles POBLongShort.Click
         If NTInput Then Exit Sub
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -3369,7 +3369,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBHidden_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBHidden.Click
+    Private Sub POBHidden_Click(sender As Object, e As EventArgs) Handles POBHidden.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3386,7 +3386,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBVisible_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBVisible.Click
+    Private Sub POBVisible_Click(sender As Object, e As EventArgs) Handles POBVisible.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3403,7 +3403,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBHiddenVisible_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles POBHiddenVisible.Click
+    Private Sub POBHiddenVisible_Click(sender As Object, e As EventArgs) Handles POBHiddenVisible.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3420,7 +3420,7 @@ StartCount:     If Not NTInput Then
         RefreshPanelAll()
     End Sub
 
-    Private Sub POBModify_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles POBModify.Click
+    Private Sub POBModify_Click(sender As System.Object, e As EventArgs) Handles POBModify.Click
         Dim xNum As Boolean = False
         Dim xLbl As Boolean = False
         Dim xI1 As Integer
@@ -3489,18 +3489,18 @@ Jump2:
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBMyO2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBMyO2.Click, mnMyO2.Click
+    Private Sub TBMyO2_Click(sender As Object, e As EventArgs) Handles TBMyO2.Click, mnMyO2.Click
         Dim xDiag As New dgMyO2
         xDiag.Show()
     End Sub
 
 
-    Private Sub TBFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBFind.Click, mnFind.Click
+    Private Sub TBFind_Click(sender As Object, e As EventArgs) Handles TBFind.Click, mnFind.Click
         Dim xDiag As New diagFind(gColumns, Strings.Messages.Err, Strings.Messages.InvalidLabel)
         xDiag.Show()
     End Sub
 
-    Private Function fdrCheck(ByVal xNote As Note) As Boolean
+    Private Function fdrCheck(xNote As Note) As Boolean
         Return xNote.VPosition >= MeasureBottom(fdriMesL) And xNote.VPosition < MeasureBottom(fdriMesU) + MeasureLength(fdriMesU) AndAlso
                IIf(IsColumnNumeric(xNote.ColumnIndex),
                    xNote.Value >= fdriValL And xNote.Value <= fdriValU,
@@ -3508,15 +3508,15 @@ Jump2:
                Array.IndexOf(fdriCol, xNote.ColumnIndex) <> -1
     End Function
 
-    Private Function fdrRangeS(ByVal xbLim1 As Boolean, ByVal xbLim2 As Boolean, ByVal xVal As Boolean) As Boolean
+    Private Function fdrRangeS(xbLim1 As Boolean, xbLim2 As Boolean, xVal As Boolean) As Boolean
         Return (Not xbLim1 And xbLim2 And xVal) Or (xbLim1 And Not xbLim2 And Not xVal) Or (xbLim1 And xbLim2)
     End Function
 
-    Public Sub fdrSelect(ByVal iRange As Integer,
-                         ByVal xMesL As Integer, ByVal xMesU As Integer,
-                         ByVal xLblL As String, ByVal xLblU As String,
-                         ByVal xValL As Integer, ByVal xValU As Integer,
-                         ByVal iCol() As Integer)
+    Public Sub fdrSelect(iRange As Integer,
+                         xMesL As Integer, xMesU As Integer,
+                         xLblL As String, xLblU As String,
+                         xValL As Integer, xValU As Integer,
+                         iCol() As Integer)
 
         fdriMesL = xMesL
         fdriMesU = xMesU
@@ -3557,11 +3557,11 @@ Jump2:
         Beep()
     End Sub
 
-    Public Sub fdrUnselect(ByVal iRange As Integer,
-                           ByVal xMesL As Integer, ByVal xMesU As Integer,
-                           ByVal xLblL As String, ByVal xLblU As String,
-                           ByVal xValL As Integer, ByVal xValU As Integer,
-                           ByVal iCol() As Integer)
+    Public Sub fdrUnselect(iRange As Integer,
+                           xMesL As Integer, xMesU As Integer,
+                           xLblL As String, xLblU As String,
+                           xValL As Integer, xValU As Integer,
+                           iCol() As Integer)
 
         fdriMesL = xMesL
         fdriMesU = xMesU
@@ -3595,11 +3595,11 @@ Jump2:
         Beep()
     End Sub
 
-    Public Sub fdrDelete(ByVal iRange As Integer,
-                         ByVal xMesL As Integer, ByVal xMesU As Integer,
-                         ByVal xLblL As String, ByVal xLblU As String,
-                         ByVal xValL As Integer, ByVal xValU As Integer,
-                         ByVal iCol() As Integer)
+    Public Sub fdrDelete(iRange As Integer,
+                         xMesL As Integer, xMesU As Integer,
+                         xLblL As String, xLblU As String,
+                         xValL As Integer, xValU As Integer,
+                         iCol() As Integer)
 
         fdriMesL = xMesL
         fdriMesU = xMesU
@@ -3640,11 +3640,11 @@ Jump2:
         Beep()
     End Sub
 
-    Public Sub fdrReplaceL(ByVal iRange As Integer,
-                           ByVal xMesL As Integer, ByVal xMesU As Integer,
-                           ByVal xLblL As String, ByVal xLblU As String,
-                           ByVal xValL As Integer, ByVal xValU As Integer,
-                           ByVal iCol() As Integer, ByVal xReplaceLbl As String)
+    Public Sub fdrReplaceL(iRange As Integer,
+                           xMesL As Integer, xMesU As Integer,
+                           xLblL As String, xLblU As String,
+                           xValL As Integer, xValU As Integer,
+                           iCol() As Integer, xReplaceLbl As String)
 
         fdriMesL = xMesL
         fdriMesU = xMesU
@@ -3683,11 +3683,11 @@ Jump2:
         Beep()
     End Sub
 
-    Public Sub fdrReplaceV(ByVal iRange As Integer,
-                           ByVal xMesL As Integer, ByVal xMesU As Integer,
-                           ByVal xLblL As String, ByVal xLblU As String,
-                           ByVal xValL As Integer, ByVal xValU As Integer,
-                           ByVal iCol() As Integer, ByVal xReplaceVal As Integer)
+    Public Sub fdrReplaceV(iRange As Integer,
+                           xMesL As Integer, xMesU As Integer,
+                           xLblL As String, xLblU As String,
+                           xValL As Integer, xValU As Integer,
+                           iCol() As Integer, xReplaceVal As Integer)
 
         fdriMesL = xMesL
         fdriMesU = xMesU
@@ -3724,7 +3724,7 @@ Jump2:
         Beep()
     End Sub
 
-    Private Sub MInsert_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MInsert.Click
+    Private Sub MInsert_Click(sender As Object, e As EventArgs) Handles MInsert.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3794,7 +3794,7 @@ Jump2:
         RefreshPanelAll()
     End Sub
 
-    Private Sub MRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MRemove.Click
+    Private Sub MRemove_Click(sender As Object, e As EventArgs) Handles MRemove.Click
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         Dim xRedo As UndoRedo.LinkedURCmd = New UndoRedo.Void
         Dim xBaseRedo As UndoRedo.LinkedURCmd = xRedo
@@ -3867,7 +3867,7 @@ Jump2:
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBThemeDef_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBThemeDef.Click
+    Private Sub TBThemeDef_Click(sender As Object, e As EventArgs) Handles TBThemeDef.Click
         Dim xTempFileName As String = My.Application.Info.DirectoryPath & "\____TempFile.Theme.xml"
         My.Computer.FileSystem.WriteAllText(xTempFileName, My.Resources.O2Mania_Theme, False, System.Text.Encoding.Unicode)
         LoadSettings(xTempFileName)
@@ -3877,7 +3877,7 @@ Jump2:
         RefreshPanelAll()
     End Sub
 
-    Private Sub TBThemeSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBThemeSave.Click
+    Private Sub TBThemeSave_Click(sender As Object, e As EventArgs) Handles TBThemeSave.Click
         Dim xDiag As New SaveFileDialog With {
             .Filter = Strings.FileType.THEME_XML & "|*.Theme.xml",
             .DefaultExt = "Theme.xml",
@@ -3887,10 +3887,10 @@ Jump2:
 
         Me.SaveSettings(xDiag.FileName, True)
         If BeepWhileSaved Then Beep()
-        TBThemeRefresh_Click(TBThemeRefresh, New System.EventArgs)
+        TBThemeRefresh_Click(TBThemeRefresh, New EventArgs)
     End Sub
 
-    Private Sub TBThemeRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBThemeRefresh.Click
+    Private Sub TBThemeRefresh_Click(sender As Object, e As EventArgs) Handles TBThemeRefresh.Click
         For xI1 As Integer = cmnTheme.Items.Count - 1 To 5 Step -1
             Try
                 cmnTheme.Items.RemoveAt(xI1)
@@ -3905,7 +3905,7 @@ Jump2:
         Next
     End Sub
 
-    Private Sub TBThemeLoadComptability_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBThemeLoadComptability.Click
+    Private Sub TBThemeLoadComptability_Click(sender As Object, e As EventArgs) Handles TBThemeLoadComptability.Click
         Dim xDiag As New OpenFileDialog With {
             .Filter = Strings.FileType.TH & "|*.th",
             .DefaultExt = "th",
@@ -3921,7 +3921,7 @@ Jump2:
     ''' <summary>
     ''' Will return Double.PositiveInfinity if canceled.
     ''' </summary>
-    Private Function InputBoxDouble(ByVal Prompt As String, ByVal LBound As Double, ByVal UBound As Double, Optional ByVal Title As String = "", Optional ByVal DefaultResponse As String = "") As Double
+    Private Function InputBoxDouble(Prompt As String, LBound As Double, UBound As Double, Optional Title As String = "", Optional DefaultResponse As String = "") As Double
         Dim xStr As String = InputBox(Prompt, Title, DefaultResponse)
         If xStr = "" Then Return Double.PositiveInfinity
 
@@ -3930,7 +3930,7 @@ Jump2:
         If InputBoxDouble < LBound Then InputBoxDouble = LBound
     End Function
 
-    Private Sub FSSS_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FSSS.Click
+    Private Sub FSSS_Click(sender As Object, e As EventArgs) Handles FSSS.Click
         Dim xMax As Double = IIf(vSelLength > 0, GetMaxVPosition() - vSelLength, GetMaxVPosition)
         Dim xMin As Double = IIf(vSelLength < 0, -vSelLength, 0)
         Dim xDouble As Double = InputBoxDouble("Please enter a number between " & xMin & " and " & xMax & ".", xMin, xMax, , vSelStart)
@@ -3942,7 +3942,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub FSSL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FSSL.Click
+    Private Sub FSSL_Click(sender As Object, e As EventArgs) Handles FSSL.Click
         Dim xMax As Double = GetMaxVPosition() - vSelStart
         Dim xMin As Double = -vSelStart
         Dim xDouble As Double = InputBoxDouble("Please enter a number between " & xMin & " and " & xMax & ".", xMin, xMax, , vSelLength)
@@ -3954,7 +3954,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub FSSH_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FSSH.Click
+    Private Sub FSSH_Click(sender As Object, e As EventArgs) Handles FSSH.Click
         Dim xMax As Double = IIf(vSelLength > 0, vSelLength, 0)
         Dim xMin As Double = IIf(vSelLength > 0, 0, -vSelLength)
         Dim xDouble As Double = InputBoxDouble("Please enter a number between " & xMin & " and " & xMax & ".", xMin, xMax, , vSelHalf)
@@ -3966,7 +3966,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BVCReverse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BVCReverse.Click
+    Private Sub BVCReverse_Click(sender As Object, e As EventArgs) Handles BVCReverse.Click
         vSelStart += vSelLength
         vSelHalf -= vSelLength
         vSelLength *= -1
@@ -3975,7 +3975,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub AutoSaveTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AutoSaveTimer.Tick
+    Private Sub AutoSaveTimer_Tick(sender As Object, e As EventArgs) Handles AutoSaveTimer.Tick
         Dim xTime As Date = Now
         Dim xFileName As String
         With xTime
@@ -3992,20 +3992,20 @@ Jump2:
         PreviousAutoSavedFileName = xFileName
     End Sub
 
-    Private Sub CWAVMultiSelect_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CWAVMultiSelect.CheckedChanged
+    Private Sub CWAVMultiSelect_CheckedChanged(sender As Object, e As EventArgs) Handles CWAVMultiSelect.CheckedChanged
         WAVMultiSelect = CWAVMultiSelect.Checked
         LWAV.SelectionMode = IIf(WAVMultiSelect, SelectionMode.MultiExtended, SelectionMode.One)
         LBMP.SelectionMode = IIf(WAVMultiSelect, SelectionMode.MultiExtended, SelectionMode.One)
     End Sub
 
-    Private Sub CWAVChangeLabel_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CWAVChangeLabel.CheckedChanged
+    Private Sub CWAVChangeLabel_CheckedChanged(sender As Object, e As EventArgs) Handles CWAVChangeLabel.CheckedChanged
         WAVChangeLabel = CWAVChangeLabel.Checked
     End Sub
-    Private Sub CWAVEmptyfill_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CWAVEmptyfill.CheckedChanged
+    Private Sub CWAVEmptyfill_CheckedChanged(sender As Object, e As EventArgs) Handles CWAVEmptyfill.CheckedChanged
         WAVEmptyfill = CWAVEmptyfill.Checked
     End Sub
 
-    Private Sub BWAVUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BWAVUp.Click
+    Private Sub BWAVUp_Click(sender As Object, e As EventArgs) Handles BWAVUp.Click
         If LWAV.SelectedIndex = -1 Then Return
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4064,7 +4064,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BWAVDown_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BWAVDown.Click
+    Private Sub BWAVDown_Click(sender As Object, e As EventArgs) Handles BWAVDown.Click
         If LWAV.SelectedIndex = -1 Then Return
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4123,7 +4123,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BWAVBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BWAVBrowse.Click
+    Private Sub BWAVBrowse_Click(sender As Object, e As EventArgs) Handles BWAVBrowse.Click
         Dim xDWAV As New OpenFileDialog With {
             .DefaultExt = "wav",
             .Filter = Strings.FileType._wave & "|*.wav;*.ogg;*.mp3;*.flac|" &
@@ -4142,7 +4142,7 @@ Jump2:
         AddToPOWAV(xDWAV.FileNames)
     End Sub
 
-    Private Sub BWAVRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BWAVRemove.Click
+    Private Sub BWAVRemove_Click(sender As Object, e As EventArgs) Handles BWAVRemove.Click
         Dim xIndices(LWAV.SelectedIndices.Count - 1) As Integer
         LWAV.SelectedIndices.CopyTo(xIndices, 0)
         For xI1 As Integer = 0 To UBound(xIndices)
@@ -4160,7 +4160,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BBMPUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBMPUp.Click
+    Private Sub BBMPUp_Click(sender As Object, e As EventArgs) Handles BBMPUp.Click
         If LBMP.SelectedIndex = -1 Then Return
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4219,7 +4219,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BBMPDown_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBMPDown.Click
+    Private Sub BBMPDown_Click(sender As Object, e As EventArgs) Handles BBMPDown.Click
         If LBMP.SelectedIndex = -1 Then Return
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4278,7 +4278,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub BBMPBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBMPBrowse.Click
+    Private Sub BBMPBrowse_Click(sender As Object, e As EventArgs) Handles BBMPBrowse.Click
         Dim xDBMP As New OpenFileDialog With {
             .DefaultExt = "bmp",
             .Filter = Strings.FileType._image & "|*.bmp;*.png;*.jpg;*.jpeg;.gif|" &
@@ -4305,7 +4305,7 @@ Jump2:
         AddToPOBMP(xDBMP.FileNames)
     End Sub
 
-    Private Sub BBMPRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBMPRemove.Click
+    Private Sub BBMPRemove_Click(sender As Object, e As EventArgs) Handles BBMPRemove.Click
         Dim xIndices(LBMP.SelectedIndices.Count - 1) As Integer
         LBMP.SelectedIndices.CopyTo(xIndices, 0)
         For xI1 As Integer = 0 To UBound(xIndices)
@@ -4323,7 +4323,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub mnMain_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles mnMain.MouseDown ', TBMain.MouseDown  ', pttl.MouseDown, pIsSaved.MouseDown
+    Private Sub mnMain_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles mnMain.MouseDown ', TBMain.MouseDown  ', pttl.MouseDown, pIsSaved.MouseDown
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             ReleaseCapture()
             SendMessage(Me.Handle, &H112, &HF012, 0)
@@ -4335,7 +4335,7 @@ Jump2:
         End If
     End Sub
 
-    Private Sub mnSelectAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSelectAll.Click
+    Private Sub mnSelectAll_Click(sender As Object, e As EventArgs) Handles mnSelectAll.Click
         If Not (PMainIn.Focused OrElse PMainInL.Focused Or PMainInR.Focused) Then Exit Sub
         For xI1 As Integer = 1 To UBound(Notes)
             Notes(xI1).Selected = nEnabled(Notes(xI1).ColumnIndex)
@@ -4349,7 +4349,7 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub mnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnDelete.Click
+    Private Sub mnDelete_Click(sender As Object, e As EventArgs) Handles mnDelete.Click
         If Not (PMainIn.Focused OrElse PMainInL.Focused Or PMainInR.Focused) Then Exit Sub
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4366,15 +4366,15 @@ Jump2:
         POStatusRefresh()
     End Sub
 
-    Private Sub mnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub mnUpdate_Click(sender As Object, e As EventArgs)
         Process.Start("http://www.cs.mcgill.ca/~ryang6/iBMSC/")
     End Sub
 
-    Private Sub mnUpdateC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub mnUpdateC_Click(sender As Object, e As EventArgs)
         Process.Start("http://bbs.rohome.net/thread-1074065-1-1.html")
     End Sub
 
-    Private Sub mnQuit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnQuit.Click
+    Private Sub mnQuit_Click(sender As Object, e As EventArgs) Handles mnQuit.Click
         Close()
     End Sub
 
@@ -4405,64 +4405,64 @@ Jump2:
         Next
     End Sub
 
-    Private Sub ttlIcon_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    Private Sub ttlIcon_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs)
         'ttlIcon.Image = My.Resources.icon2_16
         'mnSys.Show(ttlIcon, 0, ttlIcon.Height)
     End Sub
-    Private Sub ttlIcon_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub ttlIcon_MouseEnter(sender As Object, e As EventArgs)
         'ttlIcon.Image = My.Resources.icon2_16_highlight
     End Sub
-    Private Sub ttlIcon_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub ttlIcon_MouseLeave(sender As Object, e As EventArgs)
         'ttlIcon.Image = My.Resources.icon2_16
     End Sub
 
-    Private Sub mnSMenu_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSMenu.CheckedChanged
+    Private Sub mnSMenu_Click(sender As Object, e As EventArgs) Handles mnSMenu.CheckedChanged
         mnMain.Visible = mnSMenu.Checked
     End Sub
-    Private Sub mnSTB_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSTB.CheckedChanged
+    Private Sub mnSTB_Click(sender As Object, e As EventArgs) Handles mnSTB.CheckedChanged
         TBMain.Visible = mnSTB.Checked
     End Sub
-    Private Sub mnSOP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSOP.CheckedChanged
+    Private Sub mnSOP_Click(sender As Object, e As EventArgs) Handles mnSOP.CheckedChanged
         POptions.Visible = mnSOP.Checked
     End Sub
-    Private Sub mnSStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSStatus.CheckedChanged
+    Private Sub mnSStatus_Click(sender As Object, e As EventArgs) Handles mnSStatus.CheckedChanged
         pStatus.Visible = mnSStatus.Checked
     End Sub
-    Private Sub mnSLSplitter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSLSplitter.CheckedChanged
+    Private Sub mnSLSplitter_Click(sender As Object, e As EventArgs) Handles mnSLSplitter.CheckedChanged
         SpL.Visible = mnSLSplitter.Checked
     End Sub
-    Private Sub mnSRSplitter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnSRSplitter.CheckedChanged
+    Private Sub mnSRSplitter_Click(sender As Object, e As EventArgs) Handles mnSRSplitter.CheckedChanged
         SpR.Visible = mnSRSplitter.Checked
     End Sub
-    Private Sub CGShow_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShow.CheckedChanged
+    Private Sub CGShow_CheckedChanged(sender As Object, e As EventArgs) Handles CGShow.CheckedChanged
         gShowGrid = CGShow.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowS_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowS.CheckedChanged
+    Private Sub CGShowS_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowS.CheckedChanged
         gShowSubGrid = CGShowS.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowBG_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowBG.CheckedChanged
+    Private Sub CGShowBG_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowBG.CheckedChanged
         gShowBG = CGShowBG.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowM_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowM.CheckedChanged
+    Private Sub CGShowM_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowM.CheckedChanged
         gShowMeasureNumber = CGShowM.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowV_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowV.CheckedChanged
+    Private Sub CGShowV_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowV.CheckedChanged
         gShowVerticalLine = CGShowV.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowMB_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowMB.CheckedChanged
+    Private Sub CGShowMB_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowMB.CheckedChanged
         gShowMeasureBar = CGShowMB.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGShowC_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGShowC.CheckedChanged
+    Private Sub CGShowC_CheckedChanged(sender As Object, e As EventArgs) Handles CGShowC.CheckedChanged
         gShowC = CGShowC.Checked
         RefreshPanelAll()
     End Sub
-    Private Sub CGBLP_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGBLP.CheckedChanged
+    Private Sub CGBLP_CheckedChanged(sender As Object, e As EventArgs) Handles CGBLP.CheckedChanged
         gDisplayBGAColumn = CGBLP.Checked
 
         column(niBGA).isVisible = gDisplayBGAColumn
@@ -4478,7 +4478,7 @@ Jump2:
         UpdateColumnsX()
         RefreshPanelAll()
     End Sub
-    Private Sub CGSCROLL_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGSCROLL.CheckedChanged
+    Private Sub CGSCROLL_CheckedChanged(sender As Object, e As EventArgs) Handles CGSCROLL.CheckedChanged
         gSCROLL = CGSCROLL.Checked
 
         column(niSCROLL).isVisible = gSCROLL
@@ -4491,7 +4491,7 @@ Jump2:
         UpdateColumnsX()
         RefreshPanelAll()
     End Sub
-    Private Sub CGSTOP_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGSTOP.CheckedChanged
+    Private Sub CGSTOP_CheckedChanged(sender As Object, e As EventArgs) Handles CGSTOP.CheckedChanged
         gSTOP = CGSTOP.Checked
 
         column(niSTOP).isVisible = gSTOP
@@ -4504,7 +4504,7 @@ Jump2:
         UpdateColumnsX()
         RefreshPanelAll()
     End Sub
-    Private Sub CGBPM_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGBPM.CheckedChanged
+    Private Sub CGBPM_CheckedChanged(sender As Object, e As EventArgs) Handles CGBPM.CheckedChanged
         'Dim xUndo As UndoRedo.LinkedURCmd = Nothing
         'Dim xRedo As UndoRedo.LinkedURCmd = Nothing
         'Me.RedoChangeVisibleColumns(gBLP, gSTOP, iPlayer, gBLP, CGSTOP.Checked, iPlayer, xUndo, xRedo)
@@ -4521,11 +4521,11 @@ Jump2:
         RefreshPanelAll()
     End Sub
 
-    Private Sub CGDisableVertical_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CGDisableVertical.CheckedChanged
+    Private Sub CGDisableVertical_CheckedChanged(sender As Object, e As EventArgs) Handles CGDisableVertical.CheckedChanged
         DisableVerticalMove = CGDisableVertical.Checked
     End Sub
 
-    Private Sub CBeatPreserve_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CBeatPreserve.Click, CBeatMeasure.Click, CBeatCut.Click, CBeatScale.Click
+    Private Sub CBeatPreserve_Click(sender As Object, e As EventArgs) Handles CBeatPreserve.Click, CBeatMeasure.Click, CBeatCut.Click, CBeatScale.Click
         'If Not sender.Checked Then Exit Sub
         Dim xBeatList() As RadioButton = {CBeatPreserve, CBeatMeasure, CBeatCut, CBeatScale}
         BeatChangeMode = Array.IndexOf(Of RadioButton)(xBeatList, sender)
@@ -4536,7 +4536,7 @@ Jump2:
     End Sub
 
 
-    Private Sub tBeatValue_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles tBeatValue.LostFocus
+    Private Sub tBeatValue_LostFocus(sender As Object, e As EventArgs) Handles tBeatValue.LostFocus
         Dim a As Double
         If Double.TryParse(tBeatValue.Text, a) Then
             If a <= 0.0# Or a >= 1000.0# Then tBeatValue.BackColor = Color.FromArgb(&HFFFFC0C0) Else tBeatValue.BackColor = Nothing
@@ -4547,7 +4547,7 @@ Jump2:
 
 
 
-    Private Sub ApplyBeat(ByVal xRatio As Double, ByVal xDisplay As String)
+    Private Sub ApplyBeat(xRatio As Double, xDisplay As String)
         SortByVPositionInsertion()
 
         Dim xUndo As UndoRedo.LinkedURCmd = Nothing
@@ -4721,7 +4721,7 @@ case2:              Dim xI0 As Integer
         POStatusRefresh()
     End Sub
 
-    Private Sub BBeatApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBeatApply.Click
+    Private Sub BBeatApply_Click(sender As Object, e As EventArgs) Handles BBeatApply.Click
         Dim xxD As Integer = nBeatD.Value
         Dim xxN As Integer = nBeatN.Value
         Dim xxRatio As Double = xxN / xxD
@@ -4729,7 +4729,7 @@ case2:              Dim xI0 As Integer
         ApplyBeat(xxRatio, xxRatio & " ( " & xxN & " / " & xxD & " ) ")
     End Sub
 
-    Private Sub BBeatApplyV_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BBeatApplyV.Click
+    Private Sub BBeatApplyV_Click(sender As Object, e As EventArgs) Handles BBeatApplyV.Click
         Dim a As Double
         If Double.TryParse(tBeatValue.Text, a) Then
             If a <= 0.0# Or a >= 1000.0# Then System.Media.SystemSounds.Hand.Play() : Exit Sub
@@ -4741,7 +4741,7 @@ case2:              Dim xI0 As Integer
     End Sub
 
 
-    Private Sub BHStageFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BHStageFile.Click, BHBanner.Click, BHBackBMP.Click, BHMissBMP.Click
+    Private Sub BHStageFile_Click(sender As Object, e As EventArgs) Handles BHStageFile.Click, BHBanner.Click, BHBackBMP.Click, BHMissBMP.Click
         Dim xDiag As New OpenFileDialog With {
             .Filter = Strings.FileType._image & "|*.bmp;*.png;*.jpeg;*.jpg;*.gif|" &
                        Strings.FileType._all & "|*.*",
@@ -4764,7 +4764,7 @@ case2:              Dim xI0 As Integer
         End If
     End Sub
 
-    Private Sub BHWavFile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BHLandMine.Click, BHPreview.Click
+    Private Sub BHWavFile_Click(sender As Object, e As EventArgs) Handles BHLandMine.Click, BHPreview.Click
         Dim xDiag As New OpenFileDialog With {
             .Filter = Strings.FileType._wave & "|*.wav;*.ogg;*.mp3;*.flac|" &
                        Strings.FileType.WAV & "|*.wav|" &
@@ -4788,7 +4788,7 @@ case2:              Dim xI0 As Integer
         End If
     End Sub
 
-    Private Sub Switches_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles _
+    Private Sub Switches_CheckedChanged(sender As Object, e As EventArgs) Handles _
     POHeaderSwitch.CheckedChanged,
     POGridSwitch.CheckedChanged,
     POWaveFormSwitch.CheckedChanged,
@@ -4822,7 +4822,7 @@ case2:              Dim xI0 As Integer
         End Try
     End Sub
 
-    Private Sub Expanders_CheckChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles _
+    Private Sub Expanders_CheckChanged(sender As Object, e As EventArgs) Handles _
     POHeaderExpander.CheckedChanged,
     POGridExpander.CheckedChanged,
     POWaveFormExpander.CheckedChanged,
@@ -4856,15 +4856,15 @@ case2:              Dim xI0 As Integer
 
     End Sub
 
-    Private Sub VerticalResizer_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles POWAVResizer.MouseDown, POBMPResizer.MouseDown, POBeatResizer.MouseDown, POExpansionResizer.MouseDown
+    Private Sub VerticalResizer_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles POWAVResizer.MouseDown, POBMPResizer.MouseDown, POBeatResizer.MouseDown, POExpansionResizer.MouseDown
         tempResize = e.Y
     End Sub
 
-    Private Sub HorizontalResizer_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles POptionsResizer.MouseDown, SpL.MouseDown, SpR.MouseDown
+    Private Sub HorizontalResizer_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles POptionsResizer.MouseDown, SpL.MouseDown, SpR.MouseDown
         tempResize = e.X
     End Sub
 
-    Private Sub POResizer_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles POWAVResizer.MouseMove, POBMPResizer.MouseMove, POBeatResizer.MouseMove, POExpansionResizer.MouseMove
+    Private Sub POResizer_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles POWAVResizer.MouseMove, POBMPResizer.MouseMove, POBeatResizer.MouseMove, POExpansionResizer.MouseMove
         If e.Button <> System.Windows.Forms.MouseButtons.Left Then Exit Sub
         If e.Y = tempResize Then Exit Sub
 
@@ -4882,7 +4882,7 @@ case2:              Dim xI0 As Integer
         End Try
     End Sub
 
-    Private Sub POptionsResizer_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles POptionsResizer.MouseMove
+    Private Sub POptionsResizer_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles POptionsResizer.MouseMove
         If e.Button <> System.Windows.Forms.MouseButtons.Left Then Exit Sub
         If e.X = tempResize Then Exit Sub
 
@@ -4898,7 +4898,7 @@ case2:              Dim xI0 As Integer
         End Try
     End Sub
 
-    Private Sub SpR_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles SpR.MouseMove
+    Private Sub SpR_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles SpR.MouseMove
         If e.Button <> System.Windows.Forms.MouseButtons.Left Then Exit Sub
         If e.X = tempResize Then Exit Sub
 
@@ -4914,7 +4914,7 @@ case2:              Dim xI0 As Integer
         End Try
     End Sub
 
-    Private Sub SpL_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles SpL.MouseMove
+    Private Sub SpL_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles SpL.MouseMove
         If e.Button <> System.Windows.Forms.MouseButtons.Left Then Exit Sub
         If e.X = tempResize Then Exit Sub
 
